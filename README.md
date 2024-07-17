@@ -12,4 +12,4 @@
 ## Xử lý xung đột nếu có  
 # git push
 # Copy đoạn hiện ra paste
-# Truy cập GitHub check lại code sau đó tạo Pull Request
+# Truy cập GitHub check lại code sau đó tạo Pull Request rồi báo lại tôi không tự ý Merged code
