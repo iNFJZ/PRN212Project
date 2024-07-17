@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group3WPF.View"
         mc:Ignorable="d"
-        Title="PurchaseOrderView" Height="450" Width="800">
+        Title="PurchaseOrderView" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <DataGrid ItemsSource="{Binding PurchaseOrders}" SelectedItem="{Binding SelectedPurchaseOrder}" AutoGenerateColumns="False" Margin="0,0,10,71">
             <DataGrid.Columns>

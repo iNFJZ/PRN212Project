@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group3WPF.View"
         mc:Ignorable="d"
-        Title="ProductView" Height="450" Width="800">
+        Title="ProductView" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="label_product"
        Content="Danh Sách Sản Phẩm"

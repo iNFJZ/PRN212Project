@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group3WPF.View"
         mc:Ignorable="d"
-        Title="UpdateSupplier" Height="450" Width="800">
+        Title="UpdateSupplier" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
+        <!-- Hình ảnh nền -->
+        <Image Source="D:\projectprnteam3\PRN212Project\BackGroud\Blue Geometric Background Poster.png" Stretch="Fill" />
+
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -40,5 +45,6 @@
             <Button x:Name="btn_save_supplier" Width="100" Height="40" Margin="5" Content="Update" Command="{Binding SaveCommand}" Click="Button_Update" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
             <Button Width="100" Height="40" Margin="5" Content="Cancel" Command="{Binding CancelCommand}" Click="Button_Cancel" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
         </StackPanel>
+    </Grid>
     </Grid>
 </Window>

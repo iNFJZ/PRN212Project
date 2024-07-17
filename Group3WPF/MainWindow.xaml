@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group3WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+         WindowStartupLocation="CenterScreen">
+       
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" Source="C:\Users\LDG\Pictures\huong-toi-muc-tieu-chung-cua-ca-chuoi-cung-ung.jpg" Stretch="Fill" />
+        <Image Grid.Row="0" Source="D:\projectprnteam3\PRN212Project\BackGroud\Blue and White Modern Bordered Background Instagram Post.png" Stretch="Fill" />
 
         <Button
             x:Name="login"

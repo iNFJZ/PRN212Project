@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group3WPF.View"
         mc:Ignorable="d"
-        Title="AddSupplier" Height="450" Width="800">
+        Title="AddSupplier" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
+        <!-- Hình ảnh nền -->
+        <Image Source="D:\projectprnteam3\PRN212Project\BackGroud\Blue Geometric Background Poster.png" Stretch="Fill" />
+
+        <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -45,6 +51,7 @@
             <Button x:Name="btn_save_supplier" Width="100" Margin="5" Content="Save" Command="{Binding SaveCommand}" Click="Button_Save" Height="30" VerticalAlignment="Top" Background="#007ACC" Foreground="White" FontSize="16" FontWeight="Bold" BorderThickness="0"/>
             <Button Width="100" Margin="5" Content="Cancel" Command="{Binding CancelCommand}" Click="Button_Cancel" Height="30" VerticalAlignment="Top" Background="#D32F2F" Foreground="White" FontSize="16" FontWeight="Bold" BorderThickness="0"/>
         </StackPanel>
+    </Grid>
     </Grid>
 
 </Window>

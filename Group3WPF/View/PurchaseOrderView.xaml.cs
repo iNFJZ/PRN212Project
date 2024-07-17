@@ -49,23 +49,23 @@ namespace Group3WPF.View
 
         //private void UpdateSupplier_Click(object sender, RoutedEventArgs e)
         //{
-        //    //// Implement logic to update the selected supplier
-        //    //Supplier selectedSupplier = (Supplier)dataGrid.SelectedItem;
-        //    //if (selectedSupplier != null)
-        //    //{
-        //    //    // Update properties of selectedSupplier as needed
-        //    //    _viewModel.UpdateSupplierCommand.Execute(selectedSupplier);
-        //    //}
+        //    // Implement logic to update the selected supplier
+        //    Supplier selectedSupplier = (Supplier)dataGrid.SelectedItem;
+        //    if (selectedSupplier != null)
+        //    {
+        //        // Update properties of selectedSupplier as needed
+        //        _viewModel.UpdateSupplierCommand.Execute(selectedSupplier);
+        //    }
         //}
 
         //private void DeleteSupplier_Click(object sender, RoutedEventArgs e)
         //{
-        //    //// Implement logic to delete the selected supplier
-        //    //Supplier selectedSupplier = (Supplier)dataGrid.SelectedItem;
-        //    //if (selectedSupplier != null)
-        //    //{
-        //    //    _viewModel.DeleteSupplierCommand.Execute(selectedSupplier.SupplierId);
-        //    //}
+        //    // Implement logic to delete the selected supplier
+        //    Supplier selectedSupplier = (Supplier)dataGrid.SelectedItem;
+        //    if (selectedSupplier != null)
+        //    {
+        //        _viewModel.DeleteSupplierCommand.Execute(selectedSupplier.SupplierId);
+        //    }
         //}
 
     }
