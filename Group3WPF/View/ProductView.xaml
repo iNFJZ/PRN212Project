@@ -1,0 +1,40 @@
+﻿<Window x:Class="Group3WPF.View.ProductView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group3WPF.View"
+        mc:Ignorable="d"
+        Title="ProductView" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="label_product"
+       Content="Danh Sách Sản Phẩm"
+       Background="#007ACC"
+       Foreground="White"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Top"
+       FontSize="18"
+       FontFamily="Arial Black"
+       Width="810"
+       Height="50"
+       HorizontalContentAlignment="Center"
+       VerticalContentAlignment="Center"
+       Margin="-10,25,0,0"/>
+
+        <DataGrid ItemsSource="{Binding Products}" AutoGenerateColumns="False" Margin="0,80,0,-80">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" />
+                <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" />
+                <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" />
+                <DataGridTextColumn Header="Color" Binding="{Binding Color}" />
+                <DataGridTextColumn Header="Package Type" Binding="{Binding PackageType}" />
+                <DataGridTextColumn Header="Size" Binding="{Binding Size}" />
+                <DataGridTextColumn Header="Tax Rate" Binding="{Binding TaxRate}" />
+                <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice}" />
+                <DataGridTextColumn Header="Recommended Retail Price" Binding="{Binding RecommendedRetailPrice}" />
+                <DataGridTextColumn Header="Typical Weight Per Unit" Binding="{Binding TypicalWeightPerUnit}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

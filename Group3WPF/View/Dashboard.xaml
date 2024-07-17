@@ -1,0 +1,16 @@
+﻿<Window x:Class="Group3WPF.View.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group3WPF.View"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="ProductButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Sản phẩm" HorizontalAlignment="Left" Margin="337,269,0,0" VerticalAlignment="Top" Width="145" Click="Product_Click"/>
+        <Button x:Name="CategoryButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Danh Mục" HorizontalAlignment="Left" Margin="337,311,0,0" VerticalAlignment="Top" Width="145" Click="Category_Click"/>
+        <Button x:Name="PurchaseButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Đơn Hàng" HorizontalAlignment="Left" Margin="337,236,0,0" VerticalAlignment="Top" Width="145" Click="Purchase_Click"/>
+        <Button x:Name="PurchaseOrderLineButton" Background="#007ACC" Foreground="White"  Content="Chi Tiết Đơn Hàng" HorizontalAlignment="Left" Margin="337,197,0,0" VerticalAlignment="Top" Width="145" Click="Purchase_Detail_Click"/>
+        <Button x:Name="SuppliesButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Nhà Cung Cấp" HorizontalAlignment="Left" Margin="337,161,0,0" VerticalAlignment="Top" Width="145" Click="Supplies_Click"/>
+    </Grid>
+</Window>
