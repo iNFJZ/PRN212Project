@@ -6,7 +6,6 @@ using Group3WPF.VieModel;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,18 +13,10 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Group3WPF.View
 {
-    /// <summary>
-    /// Interaction logic for SupplierView.xaml
-    /// </summary>
     public partial class SupplierView : Window
     {
         private readonly SupplierViewModel _viewModel;
@@ -34,8 +25,7 @@ namespace Group3WPF.View
             InitializeComponent();
             _viewModel = viewModel;
             DataContext = _viewModel;
-            Loaded += SupplierView_Loaded; //
-
+            Loaded += SupplierView_Loaded;
         }
 
         private void SupplierView_Loaded(object sender, RoutedEventArgs e)
@@ -47,30 +37,33 @@ namespace Group3WPF.View
         {
             AddSupplier addSupplier = new AddSupplier(_viewModel);
             addSupplier.Show();
-
         }
 
         private void UpdateSupplier_Click(object sender, RoutedEventArgs e)
         {
-            // Implement logic to update the selected supplier
             Supplier selectedSupplier = (Supplier)dataGrid.SelectedItem;
             if (selectedSupplier != null)
             {
                 UpdateSupplier updateSupplier = new UpdateSupplier(_viewModel);
                 updateSupplier.DataContext = selectedSupplier;
                 updateSupplier.ShowDialog();
-
-                //_viewModel.UpdateSupplierCommand.Execute(selectedSupplier);
             }
         }
 
         private void DeleteSupplier_Click(object sender, RoutedEventArgs e)
         {
-            //// Implement logic to delete the selected supplier
             Supplier selectedSupplier = (Supplier)dataGrid.SelectedItem;
             if (selectedSupplier != null)
             {
-                _viewModel.DeleteSupplierCommand.Execute(selectedSupplier.SupplierId);
+                var result = MessageBox.Show("Are you sure you want to delete this supplier?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    _viewModel.DeleteSupplierCommand.Execute(selectedSupplier.SupplierId);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a supplier to delete.", "No Supplier Selected", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -109,7 +102,6 @@ namespace Group3WPF.View
 
                 if (selectedExtension == ".txt")
                 {
-                    // Save as TXT
                     List<Supplier> suppliers = _viewModel.Suppliers.ToList();
                     suppliers.ForEach(x => x.SupplierCategory = null);
                     List<string> lines = new List<string>();
@@ -117,24 +109,24 @@ namespace Group3WPF.View
                     {
                         string[] fields = new string[]
                         {
-                    supplier.SupplierId.ToString(),
-                    supplier.SupplierName.Contains(",") ? $"\"{supplier.SupplierName}\"" : supplier.SupplierName,
-                    supplier.SupplierCategoryId?.ToString() ?? "",
-                    supplier.DeliveryMethod,
-                    supplier.DeliveryCity,
-                    supplier.SupplierReference,
-                    supplier.BankAccountName,
-                    supplier.BankAccountBranch,
-                    supplier.BankAccountCode,
-                    supplier.BankAccountNumber,
-                    supplier.BankInternationalCode,
-                    supplier.PaymentDays?.ToString() ?? "",
-                    supplier.PhoneNumber,
-                    supplier.FaxNumber,
-                    supplier.WebsiteUrl,
-                    supplier.DeliveryAddressLine1,
-                    supplier.DeliveryAddressLine2,
-                    supplier.DeliveryPostalCode
+                            supplier.SupplierId.ToString(),
+                            supplier.SupplierName.Contains(",") ? $"\"{supplier.SupplierName}\"" : supplier.SupplierName,
+                            supplier.SupplierCategoryId?.ToString() ?? "",
+                            supplier.DeliveryMethod,
+                            supplier.DeliveryCity,
+                            supplier.SupplierReference,
+                            supplier.BankAccountName,
+                            supplier.BankAccountBranch,
+                            supplier.BankAccountCode,
+                            supplier.BankAccountNumber,
+                            supplier.BankInternationalCode,
+                            supplier.PaymentDays?.ToString() ?? "",
+                            supplier.PhoneNumber,
+                            supplier.FaxNumber,
+                            supplier.WebsiteUrl,
+                            supplier.DeliveryAddressLine1,
+                            supplier.DeliveryAddressLine2,
+                            supplier.DeliveryPostalCode
                         };
 
                         string line = string.Join(",", fields);
@@ -145,7 +137,6 @@ namespace Group3WPF.View
                 }
                 else if (selectedExtension == ".json")
                 {
-                    // Save as JSON
                     List<Supplier> suppliers = _viewModel.Suppliers.ToList();
                     suppliers.ForEach(x => x.SupplierCategory = null);
 
@@ -165,9 +156,6 @@ namespace Group3WPF.View
             }
         }
 
-
-
-
         private void btnLoadFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -179,7 +167,6 @@ namespace Group3WPF.View
 
                 if (selectedExtension == ".txt")
                 {
-                    // Load from TXT
                     string[] lines = File.ReadAllLines(openFileDialog.FileName);
                     List<Supplier> suppliers = new List<Supplier>();
                     foreach (var line in lines)
@@ -217,13 +204,22 @@ namespace Group3WPF.View
                     }
 
                     dataGrid.ItemsSource = suppliers;
+                    _viewModel.Suppliers.Clear();
+                    foreach (var supplier in suppliers)
+                    {
+                        _viewModel.Suppliers.Add(supplier);
+                    }
                 }
                 else if (selectedExtension == ".json")
                 {
-                    // Load from JSON
                     string jsonContent = File.ReadAllText(openFileDialog.FileName);
                     List<Supplier> suppliers = JsonSerializer.Deserialize<List<Supplier>>(jsonContent);
                     dataGrid.ItemsSource = suppliers;
+                    _viewModel.Suppliers.Clear();
+                    foreach (var supplier in suppliers)
+                    {
+                        _viewModel.Suppliers.Add(supplier);
+                    }
                 }
                 else
                 {
@@ -246,11 +242,10 @@ namespace Group3WPF.View
                 {
                     if (currentChar == '\"')
                     {
-                        // Check if it's a double quote
                         if (i < line.Length - 1 && line[i + 1] == '\"')
                         {
                             field.Append('\"');
-                            i++; // Skip the next character
+                            i++;
                         }
                         else
                         {
@@ -280,13 +275,9 @@ namespace Group3WPF.View
                 }
             }
 
-            // Add the last field
             fields.Add(field.ToString());
 
             return fields.ToArray();
         }
-
-
-
     }
 }

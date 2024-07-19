@@ -40,7 +40,7 @@
         <TextBox x:Name="txt_refernce" Grid.Row="3" Grid.Column="1" Width="200" Margin="5" Text="{Binding SupplierReference, Mode=TwoWay}"/>
 
         <Label Grid.Row="4" Content="Phone Number:"/>
-        <TextBox x:Name="txt_phone" Grid.Row="4" Grid.Column="1" Width="200" Margin="5" Text="{Binding PhoneNumber, Mode=TwoWay}"/>
+            <TextBox x:Name="txt_phone" Grid.Row="4" Grid.Column="1" Width="200" Margin="5" Text="{Binding PhoneNumber, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
 
         <Label Grid.Row="5" Content="Website URL:"/>
         <TextBox x:Name="txt_url" Grid.Row="5" Grid.Column="1" Width="200" Margin="5" Text="{Binding WebsiteUrl, Mode=TwoWay}"/>
