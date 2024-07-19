@@ -14,12 +14,8 @@ namespace Group3WPF.VieModel
 {
     public class PurchaseViewModel : INotifyPropertyChanged
     {
-        private readonly PurchaseSevice _purchase;
+        private readonly PurchaseSevice _purchaseService;
         private ObservableCollection<PurchaseOrder> _purchaseOrder;
-        private PurchaseSevice _purchaseSevice;
-
-
-
         public ObservableCollection<PurchaseOrder> PurchaseOrders
         {
             get { return _purchaseOrder; }
@@ -32,31 +28,39 @@ namespace Group3WPF.VieModel
 
         public PurchaseViewModel(PurchaseSevice purchaseSevice)
         {
-            _purchaseSevice = purchaseSevice;
+            _purchaseService = purchaseSevice;
         }
 
-        public void LoadAsync()
+        public int getMaxId()
         {
-            var purchaseOrders = _purchaseSevice.GetAllPurchaseOrdersAsync();
+            return _purchaseService.GetAllPurchaseOrdersAsync().Last().PurchaseOrderId;
+        }
+        public PurchaseOrder FindById(int id)
+        {
+            return _purchaseService.GetPurchaseOrderByIdAsync(id);
+        }
+        public void LoadPurchaseOrdersAsync()
+        {
+            var purchaseOrders = _purchaseService.GetAllPurchaseOrdersAsync();
             PurchaseOrders = new ObservableCollection<PurchaseOrder>(purchaseOrders);
         }
 
         public ICommand AddPurchaseOrderCommand => new RelayCommand<PurchaseOrder>(async (purchaseOrder) =>
         {
-            _purchaseSevice.CreatePurchaseOrderAsync(purchaseOrder);
-            LoadAsync();
+            _purchaseService.CreatePurchaseOrderAsync(purchaseOrder);
+            LoadPurchaseOrdersAsync();
         });
 
-        public ICommand UpdateCommand => new RelayCommand<PurchaseOrder>(async (purchaseOrder) =>
+        public ICommand UpdatePurchaseOrderCommand => new RelayCommand<PurchaseOrder>(async (purchaseOrder) =>
         {
-            _purchaseSevice.UpdatePurchaseOrderAsync(purchaseOrder);
-            LoadAsync();
+            _purchaseService.UpdatePurchaseOrderAsync(purchaseOrder);
+            LoadPurchaseOrdersAsync();
         });
 
-        public ICommand DeleteCommand => new RelayCommand<int>(async (Id) =>
+        public ICommand DeletePurchaseOrderCommand => new RelayCommand<int>(async (purchaseOrderId) =>
         {
-            _purchaseSevice.DeletePurchaseOrderAsync(Id);
-            LoadAsync();
+            _purchaseService.DeletePurchaseOrderAsync(purchaseOrderId);
+            LoadPurchaseOrdersAsync();
         });
 
         // Implement INotifyPropertyChanged interface

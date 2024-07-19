@@ -115,7 +115,29 @@ namespace Group3WPF.View
                     List<string> lines = new List<string>();
                     foreach (var supplier in suppliers)
                     {
-                        string line = $"{supplier.SupplierId},{supplier.SupplierName},{supplier.SupplierCategoryId},{supplier.DeliveryMethod},{supplier.DeliveryCity},{supplier.SupplierReference},{supplier.BankAccountName},{supplier.BankAccountBranch},{supplier.BankAccountCode},{supplier.BankAccountNumber},{supplier.BankInternationalCode},{supplier.PaymentDays},{supplier.PhoneNumber},{supplier.FaxNumber},{supplier.WebsiteUrl},{supplier.DeliveryAddressLine1},{supplier.DeliveryAddressLine2},{supplier.DeliveryPostalCode}";
+                        string[] fields = new string[]
+                        {
+                    supplier.SupplierId.ToString(),
+                    supplier.SupplierName.Contains(",") ? $"\"{supplier.SupplierName}\"" : supplier.SupplierName,
+                    supplier.SupplierCategoryId?.ToString() ?? "",
+                    supplier.DeliveryMethod,
+                    supplier.DeliveryCity,
+                    supplier.SupplierReference,
+                    supplier.BankAccountName,
+                    supplier.BankAccountBranch,
+                    supplier.BankAccountCode,
+                    supplier.BankAccountNumber,
+                    supplier.BankInternationalCode,
+                    supplier.PaymentDays?.ToString() ?? "",
+                    supplier.PhoneNumber,
+                    supplier.FaxNumber,
+                    supplier.WebsiteUrl,
+                    supplier.DeliveryAddressLine1,
+                    supplier.DeliveryAddressLine2,
+                    supplier.DeliveryPostalCode
+                        };
+
+                        string line = string.Join(",", fields);
                         lines.Add(line);
                     }
                     File.WriteAllLines(saveFileDialog.FileName, lines);
@@ -144,6 +166,8 @@ namespace Group3WPF.View
         }
 
 
+
+
         private void btnLoadFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -160,7 +184,13 @@ namespace Group3WPF.View
                     List<Supplier> suppliers = new List<Supplier>();
                     foreach (var line in lines)
                     {
-                        string[] parts = line.Split(',');
+                        string[] parts = ParseCsvLine(line);
+                        if (parts.Length != 18)
+                        {
+                            MessageBox.Show("Invalid line format in the file.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+
                         Supplier supplier = new Supplier
                         {
                             SupplierId = int.Parse(parts[0]),
@@ -201,5 +231,62 @@ namespace Group3WPF.View
                 }
             }
         }
+
+        private string[] ParseCsvLine(string line)
+        {
+            List<string> fields = new List<string>();
+            StringBuilder field = new StringBuilder();
+            bool inQuotes = false;
+
+            for (int i = 0; i < line.Length; i++)
+            {
+                char currentChar = line[i];
+
+                if (inQuotes)
+                {
+                    if (currentChar == '\"')
+                    {
+                        // Check if it's a double quote
+                        if (i < line.Length - 1 && line[i + 1] == '\"')
+                        {
+                            field.Append('\"');
+                            i++; // Skip the next character
+                        }
+                        else
+                        {
+                            inQuotes = false;
+                        }
+                    }
+                    else
+                    {
+                        field.Append(currentChar);
+                    }
+                }
+                else
+                {
+                    if (currentChar == '\"')
+                    {
+                        inQuotes = true;
+                    }
+                    else if (currentChar == ',')
+                    {
+                        fields.Add(field.ToString());
+                        field.Clear();
+                    }
+                    else
+                    {
+                        field.Append(currentChar);
+                    }
+                }
+            }
+
+            // Add the last field
+            fields.Add(field.ToString());
+
+            return fields.ToArray();
+        }
+
+
+
     }
 }

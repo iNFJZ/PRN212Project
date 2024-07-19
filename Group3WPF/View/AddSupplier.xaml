@@ -9,11 +9,10 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- Hình ảnh nền -->
-        <Image Source="D:\projectprnteam3\PRN212Project\BackGroud\Blue Geometric Background Poster.png" Stretch="Fill" />
+        <Image Source="D:\GITHUB\PRN212Project\BackGroud\Blue Geometric Background Poster.png" Stretch="Fill" />
 
         <Grid>
-        
-        <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>

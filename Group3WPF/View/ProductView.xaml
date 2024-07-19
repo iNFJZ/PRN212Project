@@ -8,21 +8,24 @@
         Title="ProductView" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="433*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Label x:Name="label_product"
        Content="Danh Sách Sản Phẩm"
        Background="#007ACC"
        Foreground="White"
-       HorizontalAlignment="Left"
+       HorizontalAlignment="Center"
        VerticalAlignment="Top"
        FontSize="18"
        FontFamily="Arial Black"
-       Width="810"
+       Width="800"
        Height="50"
        HorizontalContentAlignment="Center"
-       VerticalContentAlignment="Center"
-       Margin="-10,25,0,0"/>
+       VerticalContentAlignment="Center"/>
 
-        <DataGrid x:Name="grdProduct" ItemsSource="{Binding Products}" AutoGenerateColumns="False" Margin="0,80,0,-80">
+        <DataGrid x:Name="grdProduct" ItemsSource="{Binding Products}" AutoGenerateColumns="False" Margin="0,80,0,67">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" />
@@ -36,9 +39,17 @@
                 <DataGridTextColumn Header="Recommended Retail Price" Binding="{Binding RecommendedRetailPrice}" />
                 <DataGridTextColumn Header="Typical Weight Per Unit" Binding="{Binding TypicalWeightPerUnit}" />
             </DataGrid.Columns>
-            
+
         </DataGrid>
-        <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="665,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" SelectionChanged="txtFilterBy_SelectionChanged"/>
-        <Label Content="Search" HorizontalAlignment="Left" Margin="615,30,0,0" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,372,0,0" Height="52" Width="650">
+            <Button Content="Add Product" Width="120" Height="32" Margin="5" Click="AddProduct_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="Update Product" Width="120" Height="32" Margin="5" Click="UpdateProduct_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="Delete Product" Width="120" Height="32" Margin="5" Click="DeleteProduct_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="btnSaveFile" Content="Save File" Width="120" Height="32" Margin="5" Click="btnSaveFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="btnLoadFile" Content="Load File" Width="120" Height="32" Margin="5" Click="btnLoadFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+
+        </StackPanel>
+        <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="670,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" SelectionChanged="txtFilterBy_SelectionChanged"/>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="604,16,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
