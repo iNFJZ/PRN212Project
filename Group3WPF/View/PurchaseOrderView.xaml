@@ -8,6 +8,19 @@
         Title="PurchaseOrderView" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        <Label x:Name="label_Orders"
+    Content="Danh Sách Đơn Hàng"
+    Background="#007ACC"
+    Foreground="White"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    FontSize="18"
+    FontFamily="Arial Black"
+    Width="810"
+    Height="50"
+    HorizontalContentAlignment="Center"
+    VerticalContentAlignment="Center"
+    Margin="-10,25,0,0"/>
         <DataGrid x:Name="grdPurchaseOrder" ItemsSource="{Binding PurchaseOrders}" SelectedItem="{Binding SelectedPurchaseOrder}" AutoGenerateColumns="False" Margin="0,71,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Order ID" Binding="{Binding PurchaseOrderId}"/>
@@ -20,7 +33,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="665,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" SelectionChanged="txtFilterBy_SelectionChanged"/>
-        <Label Content="Search" HorizontalAlignment="Left" Margin="615,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="Search"  Background="AliceBlue" FontWeight="Bold" BorderThickness="0" HorizontalAlignment="Left" Margin="615,30,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

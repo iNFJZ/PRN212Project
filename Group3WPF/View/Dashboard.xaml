@@ -9,10 +9,10 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Image Grid.Row="0" Source="D:\projectprnteam3\PRN212Project\BackGroud\Blue White Modern Ocean Background Instagram Story.png" Stretch="Fill" />
-        <Button x:Name="ProductButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Sản phẩm" HorizontalAlignment="Left" Margin="337,269,0,0" VerticalAlignment="Top" Width="145" Click="Product_Click"/>
-        <Button x:Name="CategoryButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Danh Mục" HorizontalAlignment="Left" Margin="337,311,0,0" VerticalAlignment="Top" Width="145" Click="Category_Click"/>
-        <Button x:Name="PurchaseButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Đơn Hàng" HorizontalAlignment="Left" Margin="337,236,0,0" VerticalAlignment="Top" Width="145" Click="Purchase_Click"/>
-        <Button x:Name="PurchaseOrderLineButton" Background="#007ACC" Foreground="White"  Content="Chi Tiết Đơn Hàng" HorizontalAlignment="Left" Margin="337,197,0,0" VerticalAlignment="Top" Width="145" Click="Purchase_Detail_Click"/>
-        <Button x:Name="SuppliesButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Nhà Cung Cấp" HorizontalAlignment="Left" Margin="337,161,0,0" VerticalAlignment="Top" Width="145" Click="Supplies_Click"/>
+        <Button x:Name="ProductButton" FontWeight="Bold" BorderThickness="0" Background="#007ACC" Foreground="White"  Content="Danh Sách Sản phẩm" HorizontalAlignment="Left" Margin="337,264,0,0" VerticalAlignment="Top" Width="145" Click="Product_Click" RenderTransformOrigin="0.521,-0.134" Height="26"/>
+        <Button x:Name="CategoryButton" FontWeight="Bold" BorderThickness="0" Background="#007ACC" Foreground="White"  Content="Danh Sách Danh Mục" HorizontalAlignment="Left" Margin="337,311,0,0" VerticalAlignment="Top" Width="145" Click="Category_Click" RenderTransformOrigin="0.521,-0.134" Height="26"/>
+        <Button x:Name="PurchaseButton" FontWeight="Bold" BorderThickness="0" Background="#007ACC" Foreground="White"  Content="Danh Sách Đơn Hàng" HorizontalAlignment="Left" Margin="337,217,0,0" VerticalAlignment="Top" Width="145" Click="Purchase_Click" RenderTransformOrigin="0.521,-0.134" Height="26"/>
+        <Button x:Name="PurchaseOrderLineButton" FontWeight="Bold" BorderThickness="0" Background="#007ACC" Foreground="White"  Content="Chi Tiết Đơn Hàng" HorizontalAlignment="Left" Margin="337,177,0,0" VerticalAlignment="Top" Width="145" Click="Purchase_Detail_Click" RenderTransformOrigin="0.521,-0.134" Height="26"/>
+        <Button x:Name="SuppliesButton" FontWeight="Bold" BorderThickness="0" Background="#007ACC" Foreground="White"  Content="Danh Sách Nhà Cung Cấp" HorizontalAlignment="Left" Margin="337,134,0,0" VerticalAlignment="Top" Width="145" Click="Supplies_Click" RenderTransformOrigin="0.521,-0.134" Height="26"/>
     </Grid>
 </Window>

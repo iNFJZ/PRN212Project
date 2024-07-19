@@ -31,31 +31,31 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Supplier Name:" VerticalAlignment="Center" Margin="5" RenderTransformOrigin="0.767,0.563"/>
+            <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Content="Supplier Name:" VerticalAlignment="Center" Margin="5" RenderTransformOrigin="0.767,0.563"/>
         <TextBox x:Name="txt_supplier_name" Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.SupplierName, Mode=TwoWay}"/>
 
-        <Label Grid.Row="1" Grid.Column="0" Content="Delivery Method:" VerticalAlignment="Center" Margin="5"/>
+            <Label Grid.Row="1" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Content="Delivery Method:" VerticalAlignment="Center" Margin="5"/>
         <TextBox x:Name="txt_method" Grid.Row="1" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.DeliveryMethod, Mode=TwoWay}"/>
 
-        <Label Grid.Row="2" Grid.Column="0" Content="Delivery City:" VerticalAlignment="Center" Margin="5"/>
+            <Label Grid.Row="2" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Content="Delivery City:" VerticalAlignment="Center" Margin="5"/>
         <TextBox x:Name="txt_city" Grid.Row="2" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.DeliveryCity, Mode=TwoWay}"/>
 
-        <Label Grid.Row="3" Grid.Column="0" Content="Supplier Reference:" VerticalAlignment="Center" Margin="5"/>
+            <Label Grid.Row="3" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Content="Supplier Reference:" VerticalAlignment="Center" Margin="5"/>
         <TextBox x:Name="txt_refernce" Grid.Row="3" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.SupplierReference, Mode=TwoWay}"/>
 
-        <Label Grid.Row="4" Grid.Column="0" Content="Phone Number:" VerticalAlignment="Center" Margin="5"/>
+            <Label Grid.Row="4" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Content="Phone Number:" VerticalAlignment="Center" Margin="5"/>
             <TextBox x:Name="txt_phone" Grid.Row="4" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.PhoneNumber, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
 
-        <Label Grid.Row="5" Grid.Column="0" Content="Website URL:" VerticalAlignment="Center" Margin="5"/>
+            <Label Grid.Row="5" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Content="Website URL:" VerticalAlignment="Center" Margin="5"/>
         <TextBox x:Name="txt_url" Grid.Row="5" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.WebsiteUrl, Mode=TwoWay}"/>
 
-        <Label Grid.Row="6" Grid.Column="0" Content="DeliveryAddressLine1:" VerticalAlignment="Center" Margin="5"/>
+            <Label Grid.Row="6" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Content="DeliveryAddressLine1:" VerticalAlignment="Center" Margin="5"/>
         <TextBox x:Name="txt_addressline1" Grid.Row="6" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.Addressline1, Mode=TwoWay}"/>
 
-        <Label Grid.Row="7" Grid.Column="0" Content="DeliveryAddressLine2:" VerticalAlignment="Center" Margin="5"/>
+            <Label Grid.Row="7" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Content="DeliveryAddressLine2:" VerticalAlignment="Center" Margin="5"/>
         <TextBox x:Name="txt_addressline2" Grid.Row="7" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.Addressline2, Mode=TwoWay}"/>
-            
-        <Label Grid.Row="8" Grid.Column="0" Content="DeliveryPortalCode:" VerticalAlignment="Center" Margin="5"/>
+
+            <Label Grid.Row="8" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Content="DeliveryPortalCode:" VerticalAlignment="Center" Margin="5"/>
         <TextBox x:Name="txt_postalcode" Grid.Row="8" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.PostalCode, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
             
             <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">

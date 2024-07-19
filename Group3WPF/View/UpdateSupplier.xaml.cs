@@ -73,5 +73,15 @@ namespace Group3WPF.View
         {
             return text.All(char.IsDigit);
         }
+
+        private void txt_addressline1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txt_addressline2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

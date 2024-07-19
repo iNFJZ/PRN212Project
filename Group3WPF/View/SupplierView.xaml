@@ -9,6 +9,20 @@
         WindowStartupLocation="CenterScreen">
 
     <Grid>
+
+        <Label x:Name="label_product"
+    Content="Danh Sách Nhà Cung Cấp  "
+    Background="#007ACC"
+    Foreground="White"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top"
+    FontSize="18"
+    FontFamily="Arial Black"
+    Width="800"
+    Height="50"
+    HorizontalContentAlignment="Center"
+    VerticalContentAlignment="Center"
+    Margin="0,25,0,0"/>
         <DataGrid x:Name="dataGrid" ItemsSource="{Binding Suppliers}" AutoGenerateColumns="False" Margin="0,71,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" />
@@ -39,11 +53,11 @@
             <Button Content="Delete Supplier" Width="120" Height="32" Margin="5" Click="DeleteSupplier_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
             <Button x:Name="btnSaveFile" Content="Save File" Width="120" Height="32" Margin="5" Click="btnSaveFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
             <Button x:Name="btnLoadFile" Content="Load File" Width="120" Height="32" Margin="5" Click="btnLoadFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
-            
+
         </StackPanel>
-        
+
         <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="665,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" SelectionChanged="txtFilterBy_SelectionChanged"/>
-        <Label Content="Search" HorizontalAlignment="Left" Margin="615,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="Search" Background="AliceBlue" FontWeight="Bold" BorderThickness="0" HorizontalAlignment="Left" Margin="615,30,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

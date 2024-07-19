@@ -12,51 +12,51 @@
         <Image Source="D:\projectprnteam3\PRN212Project\BackGroud\Blue Geometric Background Poster.png" Stretch="Fill" />
 
         <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            
-        </Grid.RowDefinitions>
-        <TextBox x:Name="txt_supplier_id" Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding SupplierId, Mode=TwoWay}" Visibility="Hidden"/>
-        <Label Grid.Row="0" Content="Supplier Name:"/>
-        <TextBox x:Name="txt_supplier_name" Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding SupplierName, Mode=TwoWay}"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
 
-        <Label Grid.Row="1" Content="Delivery Method:"/>
-        <TextBox x:Name="txt_method" Grid.Row="1" Grid.Column="1" Width="200" Margin="5" Text="{Binding DeliveryMethod, Mode=TwoWay}"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="txt_supplier_id"  Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding SupplierId, Mode=TwoWay}" Visibility="Hidden"/>
+            <Label Grid.Row="0" Content="Supplier Name:" FontWeight="Bold" BorderThickness="0"/>
+            <TextBox x:Name="txt_supplier_name" Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding SupplierName, Mode=TwoWay}"/>
 
-        <Label Grid.Row="2" Content="Delivery City:"/>
-        <TextBox x:Name="txt_city" Grid.Row="2" Grid.Column="1" Width="200" Margin="5" Text="{Binding DeliveryCity, Mode=TwoWay}"/>
+            <Label Grid.Row="1" Content="Delivery Method:" FontWeight="Bold" BorderThickness="0"/>
+            <TextBox x:Name="txt_method" Grid.Row="1" Grid.Column="1" Width="200" Margin="5" Text="{Binding DeliveryMethod, Mode=TwoWay}"/>
 
-        <Label Grid.Row="3" Content="Supplier Reference:"/>
-        <TextBox x:Name="txt_refernce" Grid.Row="3" Grid.Column="1" Width="200" Margin="5" Text="{Binding SupplierReference, Mode=TwoWay}"/>
+            <Label Grid.Row="2" Content="Delivery City:" FontWeight="Bold" BorderThickness="0"/>
+            <TextBox x:Name="txt_city" Grid.Row="2" Grid.Column="1" Width="200" Margin="5" Text="{Binding DeliveryCity, Mode=TwoWay}"/>
 
-        <Label Grid.Row="4" Content="Phone Number:"/>
-        <TextBox x:Name="txt_phone" Grid.Row="4" Grid.Column="1" Width="200" Margin="5" Text="{Binding PhoneNumber, Mode=TwoWay}"/>
+            <Label Grid.Row="3" Content="Supplier Reference:" FontWeight="Bold" BorderThickness="0"/>
+            <TextBox x:Name="txt_refernce" Grid.Row="3" Grid.Column="1" Width="200" Margin="5" Text="{Binding SupplierReference, Mode=TwoWay}"/>
 
-        <Label Grid.Row="5" Content="Website URL:"/>
-        <TextBox x:Name="txt_url" Grid.Row="5" Grid.Column="1" Width="200" Margin="5" Text="{Binding WebsiteUrl, Mode=TwoWay}"/>
+            <Label Grid.Row="4" Content="Phone Number:" FontWeight="Bold" BorderThickness="0" />
+            <TextBox x:Name="txt_phone" Grid.Row="4" Grid.Column="1" Width="200" Margin="5" Text="{Binding PhoneNumber, Mode=TwoWay}"/>
 
-        <Label Grid.Row="6" Content="DeliveryAddressLine1:"/>
-        <TextBox x:Name="txt_addressline1" Grid.Row="6" Grid.Column="1" Width="200" Text="{Binding NewSupplier.Addressline1, Mode=TwoWay}"/>
+            <Label Grid.Row="5" Content="Website URL:" FontWeight="Bold" BorderThickness="0"/>
+            <TextBox x:Name="txt_url" Grid.Row="5" Grid.Column="1" Width="200" Margin="5" Text="{Binding WebsiteUrl, Mode=TwoWay}"/>
 
-        <Label Grid.Row="7" Content="DeliveryAddressLine2:"/>
-        <TextBox x:Name="txt_addressline2" Grid.Row="7" Grid.Column="1" Width="200" Text="{Binding NewSupplier.Addressline2, Mode=TwoWay}"/>
+            <Label Grid.Row="6" Content="DeliveryAddressLine1:" FontWeight="Bold" BorderThickness="0" />
+            <TextBox x:Name="txt_addressline1" Grid.Row="6" Grid.Column="1" Width="200" Margin="5"  Text="{Binding NewSupplier.Addressline1, Mode=TwoWay}"/>
 
-        <Label Grid.Row="8" Grid.Column="0" Content="DeliveryPortalCode:" VerticalAlignment="Center" Margin="5"/>
-        <TextBox x:Name="txt_postalcode" Grid.Row="8" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.PostalCode, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
+            <Label Grid.Row="7" Content="DeliveryAddressLine2:" FontWeight="Bold" BorderThickness="0"/>
+            <TextBox x:Name="txt_addressline2" Grid.Row="7" Width="200" Text="{Binding NewSupplier.Addressline2, Mode=TwoWay}" TextChanged="txt_addressline2_TextChanged" Margin="300,5,300,36" Grid.RowSpan="2"/>
+
+            <Label Grid.Row="8" Grid.Column="0" Content="DeliveryPortalCode:" FontWeight="Bold" BorderThickness="0" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox x:Name="txt_postalcode" Grid.Row="8" Width="200" Margin="300,10,300,5" Text="{Binding NewSupplier.PostalCode, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
             <StackPanel Grid.Row="9" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-            <Button x:Name="btn_save_supplier" Width="100" Height="40" Margin="5" Content="Update" Command="{Binding SaveCommand}" Click="Button_Update" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
-            <Button Width="100" Height="40" Margin="5" Content="Cancel" Command="{Binding CancelCommand}" Click="Button_Cancel" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
-        </StackPanel>
-    </Grid>
+                <Button x:Name="btn_save_supplier" Width="100" Height="40" Margin="5" Content="Update" Command="{Binding SaveCommand}" Click="Button_Update" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+                <Button Width="100" Height="40" Margin="5" Content="Cancel" Command="{Binding CancelCommand}" Click="Button_Cancel" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
