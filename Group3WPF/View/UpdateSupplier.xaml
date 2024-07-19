@@ -22,6 +22,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            
         </Grid.RowDefinitions>
         <TextBox x:Name="txt_supplier_id" Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding SupplierId, Mode=TwoWay}" Visibility="Hidden"/>
         <Label Grid.Row="0" Content="Supplier Name:"/>
@@ -41,7 +44,16 @@
 
         <Label Grid.Row="5" Content="Website URL:"/>
         <TextBox x:Name="txt_url" Grid.Row="5" Grid.Column="1" Width="200" Margin="5" Text="{Binding WebsiteUrl, Mode=TwoWay}"/>
-        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+
+        <Label Grid.Row="6" Content="DeliveryAddressLine1:"/>
+        <TextBox x:Name="txt_addressline1" Grid.Row="6" Grid.Column="1" Width="200" Text="{Binding NewSupplier.Addressline1, Mode=TwoWay}"/>
+
+        <Label Grid.Row="7" Content="DeliveryAddressLine2:"/>
+        <TextBox x:Name="txt_addressline2" Grid.Row="7" Grid.Column="1" Width="200" Text="{Binding NewSupplier.Addressline2, Mode=TwoWay}"/>
+
+        <Label Grid.Row="8" Grid.Column="0" Content="DeliveryPortalCode:" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="txt_postalcode" Grid.Row="8" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.PostalCode, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
+            <StackPanel Grid.Row="9" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
             <Button x:Name="btn_save_supplier" Width="100" Height="40" Margin="5" Content="Update" Command="{Binding SaveCommand}" Click="Button_Update" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
             <Button Width="100" Height="40" Margin="5" Content="Cancel" Command="{Binding CancelCommand}" Click="Button_Cancel" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
         </StackPanel>

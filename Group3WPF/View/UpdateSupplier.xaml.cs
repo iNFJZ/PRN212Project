@@ -38,6 +38,9 @@ namespace Group3WPF.View
             string txt_refernce = this.txt_refernce.Text;
             string txt_phone = this.txt_phone.Text;
             string txt_url = this.txt_url.Text;
+            string txt_addressline1 = this.txt_addressline1.Text;
+            string txt_addressline2 = this.txt_addressline2.Text;
+            string txt_postalcode = this.txt_postalcode.Text;
             if (selectedSupplier != null)
             {
                 selectedSupplier.SupplierName = this.txt_supplier_name.Text;
@@ -46,6 +49,9 @@ namespace Group3WPF.View
                 selectedSupplier.SupplierReference = txt_refernce;
                 selectedSupplier.PhoneNumber = txt_phone;
                 selectedSupplier.WebsiteUrl = txt_url;
+                selectedSupplier.DeliveryAddressLine1 = txt_addressline1;
+                selectedSupplier.DeliveryAddressLine2 = txt_addressline2;
+                selectedSupplier.DeliveryPostalCode = txt_postalcode;
                 _viewModel.UpdateSupplierCommand.Execute(selectedSupplier);
                 MessageBox.Show("Cập nhật thành công");
                 this.Close();
@@ -56,6 +62,16 @@ namespace Group3WPF.View
         private void Button_Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void NumberOnly_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextNumeric(e.Text);
+        }
+
+        private static bool IsTextNumeric(string text)
+        {
+            return text.All(char.IsDigit);
         }
     }
 }

@@ -37,5 +37,24 @@ namespace Group3WPF.View
              _viewModel.LoadProductsAsync();
         }
 
+        private void txtFilterBy_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            var searchText = txtFilterBy.Text.ToLower();
+            var query = _viewModel.Products.Where(p =>
+                (p.ProductName != null && p.ProductName.ToLower().Contains(searchText)) ||
+                (p.Color != null && p.Color.ToLower().Contains(searchText)) ||
+                (p.PackageType != null && p.PackageType.ToLower().Contains(searchText)) ||
+                (p.Size != null && p.Size.ToLower().Contains(searchText)) ||
+                (p.UnitPrice != null && p.UnitPrice.ToString().ToLower().Contains(searchText)) ||
+                (p.RecommendedRetailPrice != null && p.RecommendedRetailPrice.ToString().ToLower().Contains(searchText)) ||
+                (p.TypicalWeightPerUnit != null && p.TypicalWeightPerUnit.ToString().ToLower().Contains(searchText)) ||
+                (p.Supplier != null && p.Supplier.SupplierName != null && p.Supplier.SupplierName.ToLower().Contains(searchText))
+            // Add more fields if needed
+            ).ToList();
+
+            grdProduct.ItemsSource = query;
+        }
+
+
     }
 }

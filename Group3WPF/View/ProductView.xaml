@@ -22,7 +22,7 @@
        VerticalContentAlignment="Center"
        Margin="-10,25,0,0"/>
 
-        <DataGrid ItemsSource="{Binding Products}" AutoGenerateColumns="False" Margin="0,80,0,-80">
+        <DataGrid x:Name="grdProduct" ItemsSource="{Binding Products}" AutoGenerateColumns="False" Margin="0,80,0,-80">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Product ID" Binding="{Binding ProductId}" />
@@ -36,6 +36,9 @@
                 <DataGridTextColumn Header="Recommended Retail Price" Binding="{Binding RecommendedRetailPrice}" />
                 <DataGridTextColumn Header="Typical Weight Per Unit" Binding="{Binding TypicalWeightPerUnit}" />
             </DataGrid.Columns>
+            
         </DataGrid>
+        <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="665,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" SelectionChanged="txtFilterBy_SelectionChanged"/>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="615,30,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

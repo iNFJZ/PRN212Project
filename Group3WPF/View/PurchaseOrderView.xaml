@@ -8,7 +8,7 @@
         Title="PurchaseOrderView" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid ItemsSource="{Binding PurchaseOrders}" SelectedItem="{Binding SelectedPurchaseOrder}" AutoGenerateColumns="False" Margin="0,0,10,71">
+        <DataGrid x:Name="grdPurchaseOrder" ItemsSource="{Binding PurchaseOrders}" SelectedItem="{Binding SelectedPurchaseOrder}" AutoGenerateColumns="False" Margin="0,71,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Order ID" Binding="{Binding PurchaseOrderId}"/>
                 <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierId}"/>
@@ -19,6 +19,8 @@
                 <DataGridTextColumn Header="IsOrderFinalized" Binding="{Binding IsOrderFinalized}"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+        <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="665,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" SelectionChanged="txtFilterBy_SelectionChanged"/>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="615,30,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
