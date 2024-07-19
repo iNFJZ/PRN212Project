@@ -40,7 +40,11 @@ namespace Group3WPF.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            OnModelCreatingPartial(modelBuilder);
+            modelBuilder.Entity<Product>()
+            .HasOne(p => p.Supplier)
+            .WithMany(s => s.Products)
+            .HasForeignKey(p => p.SupplierId)
+            .OnDelete(DeleteBehavior.Cascade);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

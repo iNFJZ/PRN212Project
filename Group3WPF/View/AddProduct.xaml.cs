@@ -1,18 +1,10 @@
 ﻿using Group3WPF.Models;
 using Group3WPF.VieModel;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Group3WPF.View
 {
@@ -31,7 +23,6 @@ namespace Group3WPF.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
             Product newProduct = new Product
             {
                 ProductName = "New Product" // Example initial data
@@ -51,22 +42,54 @@ namespace Group3WPF.View
             string txt_recommended_retail_price = this.txt_recommended_retail_price.Text;
             string txt_typical_weight_per_unit = this.txt_typical_weight_per_unit.Text;
 
+            int? supplierId = null;
+            decimal? taxRate = null;
+            decimal? unitPrice = null;
+            decimal? recommendedRetailPrice = null;
+            decimal? typicalWeightPerUnit = null;
+
+            // TryParse cho các giá trị số
+            if (int.TryParse(txt_supplier_id, out int parsedSupplierId))
+            {
+                supplierId = parsedSupplierId;
+            }
+
+            if (decimal.TryParse(txt_tax_rate, out decimal parsedTaxRate))
+            {
+                taxRate = parsedTaxRate;
+            }
+
+            if (decimal.TryParse(txt_unit_price, out decimal parsedUnitPrice))
+            {
+                unitPrice = parsedUnitPrice;
+            }
+
+            if (decimal.TryParse(txt_recommended_retail_price, out decimal parsedRecommendedRetailPrice))
+            {
+                recommendedRetailPrice = parsedRecommendedRetailPrice;
+            }
+
+            if (decimal.TryParse(txt_typical_weight_per_unit, out decimal parsedTypicalWeightPerUnit))
+            {
+                typicalWeightPerUnit = parsedTypicalWeightPerUnit;
+            }
+
             Product newProduct = new Product
             {
                 ProductId = _viewModel.getMaxId() + 1, // Get the max ID and increment it
                 ProductName = txt_product_name,
-                SupplierId = string.IsNullOrEmpty(txt_supplier_id) ? (int?)null : int.Parse(txt_supplier_id),
+                SupplierId = supplierId,
                 Color = txt_color,
                 PackageType = txt_package_type,
                 Size = txt_size,
-                TaxRate = string.IsNullOrEmpty(txt_tax_rate) ? (decimal?)null : decimal.Parse(txt_tax_rate),
-                UnitPrice = string.IsNullOrEmpty(txt_unit_price) ? (decimal?)null : decimal.Parse(txt_unit_price),
-                RecommendedRetailPrice = string.IsNullOrEmpty(txt_recommended_retail_price) ? (decimal?)null : decimal.Parse(txt_recommended_retail_price),
-                TypicalWeightPerUnit = string.IsNullOrEmpty(txt_typical_weight_per_unit) ? (decimal?)null : decimal.Parse(txt_typical_weight_per_unit)
+                TaxRate = taxRate,
+                UnitPrice = unitPrice,
+                RecommendedRetailPrice = recommendedRetailPrice,
+                TypicalWeightPerUnit = typicalWeightPerUnit
             };
 
             _viewModel.AddProductCommand.Execute(newProduct); // Execute the command to add the product
-            MessageBox.Show("Product added successfully");
+            MessageBox.Show("New Product added successfully");
             this.Close();
             _viewModel.LoadProductsAsync();
         }
