@@ -50,5 +50,10 @@ namespace Group3WPF.Repository.impl
                 _context.SaveChangesAsync();
             }
         }
+
+        public List<string> GetAllProductName()
+        {
+            return _context.Products.Select(p => p.ProductName).Distinct().ToList();
+        }
     }
 }

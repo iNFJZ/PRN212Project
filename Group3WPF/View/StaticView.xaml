@@ -1,0 +1,40 @@
+﻿<Window x:Class="Group3WPF.View.StaticView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group3WPF.View"
+        mc:Ignorable="d"
+        Title="StaticView" Height="450" Width="800" 
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="433*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label_static"
+Content="Số liệu Bán Hàng"
+Background="#007ACC"
+Foreground="White"
+HorizontalAlignment="Center"
+VerticalAlignment="Top"
+FontSize="18"
+FontFamily="Arial Black"
+Width="800"
+Height="50"
+HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cboProduct" HorizontalAlignment="Left" Margin="22,76,0,0" VerticalAlignment="Top" Width="173" Height="30" SelectionChanged="cboProduct_SelectionChanged"/>
+        <Label x:Name="lblProduct" Content="Product" HorizontalAlignment="Left" Margin="218,78,0,0" VerticalAlignment="Top" Width="57"/>
+        <Label x:Name="lblQuantity" Content="Selling Quantity: " HorizontalAlignment="Left" Margin="22,141,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSPercentage" Content="Selling Percentage: " HorizontalAlignment="Left" Margin="22,191,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtQuantity" HorizontalAlignment="Left" Margin="155,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="txtSPercentage" HorizontalAlignment="Left" Margin="155,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <ComboBox x:Name="cboDelivary" HorizontalAlignment="Left" Margin="400,75,0,0" VerticalAlignment="Top" Width="173" Height="30" SelectionChanged="cboDelivary_SelectionChanged"/>
+        <Label x:Name="lblDelivaryMethod" Content="Delivery Method" HorizontalAlignment="Left" Margin="620,78,0,0" VerticalAlignment="Top" Width="104"/>
+        <Label x:Name="lblNumber" Content="Number of  used" HorizontalAlignment="Left" Margin="400,141,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDPercentage" Content="Percentage of used" HorizontalAlignment="Left" Margin="400,195,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNumber" HorizontalAlignment="Left" Margin="571,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="txtDPercentage" HorizontalAlignment="Left" Margin="571,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+    </Grid>
+</Window>

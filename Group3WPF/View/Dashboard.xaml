@@ -12,6 +12,7 @@
         <Button x:Name="ProductButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Sản phẩm" HorizontalAlignment="Left" Margin="337,269,0,0" VerticalAlignment="Top" Width="145" Click="Product_Click"/>
         <Button x:Name="CategoryButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Danh Mục" HorizontalAlignment="Left" Margin="337,311,0,0" VerticalAlignment="Top" Width="145" Click="Category_Click"/>
         <Button x:Name="PurchaseButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Đơn Hàng" HorizontalAlignment="Left" Margin="337,236,0,0" VerticalAlignment="Top" Width="145" Click="Purchase_Click"/>
+        <Button x:Name="StaticButton" Background="#007ACC" Foreground="White"  Content="Thống Kê Đơn Hàng" HorizontalAlignment="Left" Margin="337,202,0,0" VerticalAlignment="Top" Width="145" Click="Static_Click"/>
         <Button x:Name="SuppliesButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Nhà Cung Cấp" HorizontalAlignment="Left" Margin="337,161,0,0" VerticalAlignment="Top" Width="145" Click="Supplies_Click"/>
     </Grid>
 </Window>

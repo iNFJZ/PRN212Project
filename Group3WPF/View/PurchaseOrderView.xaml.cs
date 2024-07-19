@@ -34,7 +34,7 @@ namespace Group3WPF.View
             InitializeComponent();
             _viewModel = viewModel;
             DataContext = _viewModel;
-            Loaded += PurchaseView_Loaded; //
+            Loaded += PurchaseView_Loaded;
         }
 
 

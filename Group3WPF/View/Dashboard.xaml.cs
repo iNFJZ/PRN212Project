@@ -54,5 +54,12 @@ namespace Group3WPF.View
             supplierView.Show();
            
         }
+
+        private void Static_Click(object sender, RoutedEventArgs e)
+        {
+            StaticViewModel staticViewModel = new StaticViewModel(new PurchaseSevice());
+            StaticView view = new StaticView(staticViewModel);
+            view.Show();
+        }
     }
 }

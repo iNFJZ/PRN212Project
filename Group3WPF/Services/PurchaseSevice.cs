@@ -1,6 +1,7 @@
 ﻿using Group3WPF.Context;
 using Group3WPF.Models;
 using Group3WPF.Repository.impl;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +67,75 @@ namespace Group3WPF.Services
             MyContext myContext = new MyContext();
             PurchaseLineRepository purchaseLineRepository = new PurchaseLineRepository(myContext);
             return purchaseLineRepository.GetPurchaseOrderLineByPurchaseOrderIdAsync(purchaseId);
+        }
+
+        // Static Management
+        //Delivery
+        public int CountDelivery(string deliveryMethod)
+        {
+            MyContext myContext = new MyContext();
+            PurchaseRepository purchaseRepository = new PurchaseRepository(myContext);
+            return purchaseRepository.CountDelivery(deliveryMethod);
+        }
+
+        public float CountDeliveryPercentage(string deliveryMethod)
+        {
+            MyContext myContext = new MyContext();
+            PurchaseRepository purchaseRepository = new PurchaseRepository(myContext);
+            return purchaseRepository.CountDeliveryPercentage(deliveryMethod);
+        }
+        public List<string> GetDeliveryMethodLst()
+        {
+            MyContext myContext = new MyContext();
+            PurchaseRepository purchaseRepository = new PurchaseRepository(myContext);
+            return purchaseRepository.GetDeliveryMethodLst();
+        }
+
+        public int CountAllDelivery()
+        {
+            MyContext myContext = new MyContext();
+            PurchaseRepository purchaseRepository = new PurchaseRepository(myContext);
+            return purchaseRepository.CountAllDelivery();
+        }
+        //Product
+        public int GetProductOrderQuantity(string productName)
+        {
+            MyContext myContext = new MyContext();
+            PurchaseLineRepository purchaseLineRepository = new PurchaseLineRepository(myContext);
+            return purchaseLineRepository.GetProductOrderQuantity(productName);
+        }
+
+        public int GetProductOrderQuantity(int productId)
+        {
+            MyContext myContext = new MyContext();
+            PurchaseLineRepository purchaseLineRepository = new PurchaseLineRepository(myContext);
+            return purchaseLineRepository.GetProductOrderQuantity(productId);
+        }
+        //public int GetProductIdByName(string productName)
+        //{
+        //    MyContext myContext = new MyContext();
+        //    PurchaseLineRepository purchaseLineRepository = new PurchaseLineRepository(myContext);
+        //    return purchaseLineRepository.GetProductIdByName(productName);
+        //}
+
+        public int GetAllProductOrderQuantity()
+        {
+            MyContext myContext = new MyContext();
+            PurchaseLineRepository purchaseLineRepository = new PurchaseLineRepository(myContext);
+            return purchaseLineRepository.GetAllProductOrderQuantity();
+        }
+        public float GetProductOrderQuantityPercentage(string productName)
+        {
+            MyContext myContext = new MyContext();
+            PurchaseLineRepository purchaseLineRepository = new PurchaseLineRepository(myContext);
+            return purchaseLineRepository.GetProductOrderQuantityPercantage(productName);
+        }
+
+        public List<string> GetAllProductName()
+        {
+            MyContext myContext = new MyContext();
+            ProductRepository _productRepository = new ProductRepository(myContext);
+            return _productRepository.GetAllProductName();
         }
     }
 }

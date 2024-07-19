@@ -54,5 +54,37 @@ namespace Group3WPF.Repository.impl
                 _context.SaveChangesAsync();
             }
         }
+
+        public int GetProductOrderQuantity(string productName)
+        {
+            List<Product> list = _context.Products.Where(p => p.ProductName == productName).ToList();
+            int quantity = 0;
+            foreach (var product in list)
+            {
+                int id= product.ProductId;
+                quantity += (int)_context.PurchaseOrderLines.Where(pol => pol.ProductId == id).Sum(pol => pol.OrderedQuantity);
+            }
+            return quantity;
+        }
+        public int GetProductOrderQuantity(int productId)
+        {
+            return (int)_context.PurchaseOrderLines.Where(pol => pol.ProductId == productId).Sum(pol => pol.OrderedQuantity) ;
+        }
+
+
+        //public List<Product> GetProductIdByName(string productName)
+        //{
+        //    return _context.Products.Where(p => p.ProductName == productName).ToList();
+        //}
+
+        public int GetAllProductOrderQuantity()
+        {
+            return (int)_context.PurchaseOrderLines.Sum(pol => pol.OrderedQuantity);
+        }
+
+        public float GetProductOrderQuantityPercantage(string productName)
+        {
+            return (float)(GetProductOrderQuantity(productName) / GetAllProductOrderQuantity() * 100);
+        }
     }
 }

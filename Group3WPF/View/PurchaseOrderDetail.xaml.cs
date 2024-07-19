@@ -29,6 +29,7 @@ namespace Group3WPF.View
             _viewModel = viewModel;
             DataContext = _viewModel;
             Loaded += PurchaseDetailView_Loaded;
+            label_detail.Content += $" {PurchaseOrderId}";
         }
 
         private void PurchaseDetailView_Loaded(object sender, RoutedEventArgs e)

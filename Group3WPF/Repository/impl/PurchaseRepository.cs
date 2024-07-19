@@ -49,5 +49,32 @@ namespace Group3WPF.Repository.impl
                 _context.SaveChangesAsync();
             }
         }
+
+        public int CountDelivery(string deliveryMethod)
+        {
+            int count = 0; // Initialize a counter variable
+
+            foreach (var purchaseOrder in _context.PurchaseOrders.Where(po => po.DeliveryMethod.EndsWith(deliveryMethod)))
+            {
+                count++; // Increment the counter for each matching PurchaseOrder
+            }
+
+            return count;
+        }
+
+        public int CountAllDelivery()
+        {
+            return _context.PurchaseOrders.Count();
+        }
+
+        public float CountDeliveryPercentage(string deliveryMethod)
+        {
+            return (CountDelivery(deliveryMethod)/CountAllDelivery())*100;
+        }
+
+        public List<string> GetDeliveryMethodLst()
+        {
+            return _context.PurchaseOrders.Select(po => po.DeliveryMethod).Distinct().ToList();
+        }
     }
 }

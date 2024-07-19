@@ -5,10 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group3WPF.View"
         mc:Ignorable="d"
-        Title="PurchaseOrderDetail" Height="450" Width="800"
+        Title="PurchaseOrderDetail" Height="450" Width="778"
         WindowStartupLocation="CenterScreen">
-    <Grid>
-        <DataGrid ItemsSource="{Binding PurchaseOrderLines}" SelectedItem="{Binding SelectedPurchaseOrderLine}" AutoGenerateColumns="False" Margin="0,0,10,71">
+    <Grid HorizontalAlignment="Left" Width="776">
+        <Label x:Name="label_detail"
+Content="Chi Tiết Đơn Hàng"
+Background="#007ACC"
+Foreground="White"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"
+FontSize="18"
+FontFamily="Arial Black"
+Width="800"
+Height="50"
+               Padding="20px 0 0 0"
+HorizontalContentAlignment="Left"
+VerticalContentAlignment="Center"/>
+        <DataGrid ItemsSource="{Binding PurchaseOrderLines}" SelectedItem="{Binding SelectedPurchaseOrderLine}" AutoGenerateColumns="False" Margin="10,87,132,32">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding PurchaseOrderLineId}"/>
                 <DataGridTextColumn Header="Purchase Order ID" Binding="{Binding PurchaseOrderId}"/>
