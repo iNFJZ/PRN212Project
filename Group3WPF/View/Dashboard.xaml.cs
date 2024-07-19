@@ -50,6 +50,16 @@ namespace Group3WPF.View
 
         private void Category_Click(object sender, RoutedEventArgs e)
         {
+            SupplierCategoryService categoryService = new SupplierCategoryService();
+
+            // Create an instance of the ViewModel and pass the service to it
+            SupplierCategoryViewModel viewModel = new SupplierCategoryViewModel(categoryService);
+
+            // Create an instance of the SupplierCategoriesView and pass the ViewModel to it
+            SupplierCategoriesView view = new SupplierCategoriesView(viewModel);
+
+            // Show the SupplierCategoriesView
+            view.Show();
 
         }
 
