@@ -1,0 +1,58 @@
+﻿<Window x:Class="Group3WPF.View.AddPurchaseOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group3WPF.View"
+        mc:Ignorable="d"
+        Title="AddPurchaseOrder" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="D:\GITHUB\PRN212Project\BackGroud\Blue Geometric Background Poster.png" Stretch="Fill" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Supplier ID:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txt_supplier_id" Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewPurchaseOrder.SupplierId, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Order Date:" VerticalAlignment="Center" Margin="5"/>
+            <DatePicker x:Name="dp_order_date" Grid.Row="1" Grid.Column="1" Width="200" Margin="5" SelectedDate="{Binding NewPurchaseOrder.OrderDate, Mode=TwoWay}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Delivery Method:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txt_method" Grid.Row="2" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewPurchaseOrder.DeliveryMethod, Mode=TwoWay}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Expected Delivery Date:" VerticalAlignment="Center" Margin="5"/>
+            <DatePicker x:Name="dp_expected_delivery" Grid.Row="3" Grid.Column="1" Width="200" Margin="5" SelectedDate="{Binding NewPurchaseOrder.ExpectedDeliveryDate, Mode=TwoWay}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Content="Supplier Reference:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txt_reference" Grid.Row="4" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewPurchaseOrder.SupplierReference, Mode=TwoWay}"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Content="Is Order Finalized:" VerticalAlignment="Center" Margin="5"/>
+            <CheckBox x:Name="chk_is_finalized" Grid.Row="5" Grid.Column="1" Margin="228,5,5,5" IsChecked="{Binding NewPurchaseOrder.IsOrderFinalized, Mode=TwoWay}"/>
+
+            <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <Button x:Name="btn_save_order" Width="100" Margin="5" Content="Save" Command="{Binding SaveCommand}" Click="Button_Save" Height="30" VerticalAlignment="Top" Background="#007ACC" Foreground="White" FontSize="16" FontWeight="Bold" BorderThickness="0"/>
+                <Button Width="100" Margin="5" Content="Cancel" Command="{Binding CancelCommand}" Click="Button_Cancel" Height="30" VerticalAlignment="Top" Background="#D32F2F" Foreground="White" FontSize="16" FontWeight="Bold" BorderThickness="0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

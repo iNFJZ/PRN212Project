@@ -25,25 +25,25 @@ namespace Group3WPF.Services
             return  _productRepository.GetAllProductsAsync();
         }
 
-        public  void AddProductAsync(Product product)
+        public void CreateProductAsync(Product product)
         {
             MyContext myContext = new MyContext();
             ProductRepository _productRepository = new ProductRepository(myContext);
-            _productRepository.AddProductAsync(product);
+            _productRepository.CreateProductAsync(product);
         }
 
         public void UpdateProductAsync(Product product)
         {
             MyContext myContext = new MyContext();
             ProductRepository _productRepository = new ProductRepository(myContext);
-             _productRepository.UpdateProductAsync(product);
+            _productRepository.UpdateProductAsync(product);
         }
 
-        public async Task DeleteProductAsync(int productId)
+        public void DeleteProductAsync(int productId)
         {
             MyContext myContext = new MyContext();
             ProductRepository _productRepository = new ProductRepository(myContext);
-            await _productRepository.DeleteProductAsync(productId);
+            _productRepository.DeleteProductAsync(productId);
         }
     }
 }

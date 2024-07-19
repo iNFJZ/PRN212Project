@@ -7,20 +7,43 @@
         mc:Ignorable="d"
         Title="PurchaseOrderView" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
+
     <Grid>
-        <DataGrid x:Name="grdPurchaseOrder" ItemsSource="{Binding PurchaseOrders}" SelectedItem="{Binding SelectedPurchaseOrder}" AutoGenerateColumns="False" Margin="0,71,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="433*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label_purchaseOrder"
+               Content="Danh Sách Đơn Đặt Hàng"
+               Background="#007ACC"
+               Foreground="White"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               FontSize="18"
+               FontFamily="Arial Black"
+               Width="800"
+               Height="42"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"/>
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding PurchaseOrders}" AutoGenerateColumns="False" Margin="0,41,0,61">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Order ID" Binding="{Binding PurchaseOrderId}"/>
-                <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierId}"/>
-                <DataGridTextColumn Header="Order Date" Binding="{Binding OrderDate}"/>
-                <DataGridTextColumn Header="Delivery Method" Binding="{Binding DeliveryMethod}"/>
-                <DataGridTextColumn Header="ExpectedDeliveryDate" Binding="{Binding ExpectedDeliveryDate}"/>
-                <DataGridTextColumn Header="Supplier Reference" Binding="{Binding SupplierReference}"/>
-                <DataGridTextColumn Header="IsOrderFinalized" Binding="{Binding IsOrderFinalized}"/>
+                <DataGridTextColumn Header="PurchaseOrder ID" Binding="{Binding PurchaseOrderId}" />
+                <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" />
+                <DataGridTextColumn Header="Order Date" Binding="{Binding OrderDate}" />
+                <DataGridTextColumn Header="Delivery Method" Binding="{Binding DeliveryMethod}" />
+                <DataGridTextColumn Header="Expected Delivery Date" Binding="{Binding ExpectedDeliveryDate}" />
+                <DataGridTextColumn Header="Supplier Reference" Binding="{Binding SupplierReference}" />
+                <DataGridCheckBoxColumn Header="Is Order Finalized" Binding="{Binding IsOrderFinalized}" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="665,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" SelectionChanged="txtFilterBy_SelectionChanged"/>
-        <Label Content="Search" HorizontalAlignment="Left" Margin="615,30,0,0" VerticalAlignment="Top"/>
-
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,372,0,0" Height="52" Width="749">
+            <Button Content="Add Purchase Order" Width="141" Height="32" Margin="5" Click="AddPurchaseOrder_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="Update Purchase Order" Width="165" Height="32" Margin="5" Click="UpdatePurchaseOrder_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="Delete Purchase Order" Width="161" Height="32" Margin="5" Click="DeletePurchaseOrder_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="btnLoadFile" Content="Load File" Width="120" Height="32" Margin="5" Click="btnLoadFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="btnSaveFile" Content="Save File" Width="120" Height="32" Click="btnSaveFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+        </StackPanel>
+        <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="680,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" SelectionChanged="txtFilterBy_SelectionChanged"/>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="630,4,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

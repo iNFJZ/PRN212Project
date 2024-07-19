@@ -16,9 +16,6 @@ namespace Group3WPF.VieModel
     {
         private readonly SupplierService _supplierService;
         private ObservableCollection<Supplier> _suppliers;
-
-    
-
         public ObservableCollection<Supplier> Suppliers
         {
             get { return _suppliers; }

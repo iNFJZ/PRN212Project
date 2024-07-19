@@ -39,11 +39,11 @@ namespace Group3WPF.Services
             purchaseRepository.UpdatePurchaseOrderAsync(purchaseOrder);
         }
 
-        public void DeletePurchaseOrderAsync(int purchaseId)
+        public void DeletePurchaseOrderAsync(int purchaseOrderId)
         {
             MyContext myContext = new MyContext();
             PurchaseRepository purchaseRepository = new PurchaseRepository(myContext);
-            purchaseRepository.DeletePurchaseOrderAsync(purchaseId);
+            purchaseRepository.DeletePurchaseOrderAsync(purchaseOrderId);
         }
     }
 }

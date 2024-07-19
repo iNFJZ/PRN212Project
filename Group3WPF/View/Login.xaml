@@ -9,7 +9,7 @@
          WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- Hình ảnh nền -->
-        <Image Source="D:\projectprnteam3\PRN212Project\BackGroud\Blue and White Modern Online Workshop Background Zoom Virtual Background.png" Stretch="Fill" />
+        <Image Source="D:\GITHUB\PRN212Project\BackGroud\Blue and White Modern Online Workshop Background Zoom Virtual Background.png" Stretch="Fill" />
 
         <!-- Grid chứa các thành phần UI -->
         <Grid Margin="2,0,-2,0">

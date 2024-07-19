@@ -39,7 +39,6 @@ namespace Group3WPF.View
         }
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-
             string txt_supplier_name = this.txt_supplier_name.Text;
             string txt_method = this.txt_method.Text;
             string txt_city = this.txt_city.Text;
@@ -73,7 +72,7 @@ namespace Group3WPF.View
 
             };
             _viewModel.AddSupplierCommand.Execute(newSupplier);//đây là hàm thêm mới
-            MessageBox.Show("Thêm mới thành công");
+            MessageBox.Show("New Supplier added successfully.");
             this.Close();
             _viewModel.LoadSuppliersAsync();
         }

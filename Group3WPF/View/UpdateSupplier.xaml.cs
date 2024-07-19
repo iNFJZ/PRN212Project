@@ -32,6 +32,7 @@ namespace Group3WPF.View
         {
             int id = int.Parse( this.txt_supplier_id.Text);
             Supplier selectedSupplier = _viewModel.FindById(id);
+
             string txt_supplier_name = this.txt_supplier_name.Text;
             string txt_method = this.txt_method.Text;
             string txt_city = this.txt_city.Text;
@@ -53,7 +54,7 @@ namespace Group3WPF.View
                 selectedSupplier.DeliveryAddressLine2 = txt_addressline2;
                 selectedSupplier.DeliveryPostalCode = txt_postalcode;
                 _viewModel.UpdateSupplierCommand.Execute(selectedSupplier);
-                MessageBox.Show("Cập nhật thành công");
+                MessageBox.Show("Supplier updated successfully.");
                 this.Close();
                 _viewModel.LoadSuppliersAsync();
             }

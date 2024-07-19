@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" Source="D:\projectprnteam3\PRN212Project\BackGroud\Blue and White Modern Bordered Background Instagram Post.png" Stretch="Fill" />
+        <Image Grid.Row="0" Source="D:\GITHUB\PRN212Project\BackGroud\Blue and White Modern Bordered Background Instagram Post.png" Stretch="Fill" />
 
         <Button
             x:Name="login"
