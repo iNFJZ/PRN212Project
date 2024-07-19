@@ -58,9 +58,11 @@ namespace Group3WPF.VieModel
 
         public ICommand DeleteSupplierCommand => new RelayCommand<int>(async (supplierId) =>
         {
-             _supplierService.DeleteSupplierAsync(supplierId);
-             LoadSuppliersAsync();
+            await _supplierService.DeleteSupplierAsync(supplierId);
+            LoadSuppliersAsync();
         });
+
+
 
         // Implement INotifyPropertyChanged interface
         public event PropertyChangedEventHandler PropertyChanged;

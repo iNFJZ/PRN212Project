@@ -61,7 +61,7 @@ namespace Group3WPF.VieModel
 
         public ICommand DeleteProductCommand => new RelayCommand<int>(async (productId) =>
         {
-            _productService.DeleteProductAsync(productId);
+            await _productService.DeleteProductAsync(productId);
             LoadProductsAsync();
         });
 

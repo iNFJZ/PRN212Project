@@ -65,11 +65,18 @@ namespace Group3WPF.View
 
         private void DeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-            // Implement logic to delete the selected product
             Product selectedProduct = (Product)grdProduct.SelectedItem;
             if (selectedProduct != null)
             {
-                _viewModel.DeleteProductCommand.Execute(selectedProduct.ProductId);
+                var result = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    _viewModel.DeleteProductCommand.Execute(selectedProduct.ProductId);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a product to delete.", "No Product Selected", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

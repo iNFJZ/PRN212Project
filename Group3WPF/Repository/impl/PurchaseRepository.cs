@@ -40,14 +40,35 @@ namespace Group3WPF.Repository.impl
             _context.SaveChangesAsync();
         }
 
-        public void DeletePurchaseOrderAsync(int purchaseOrderId)
+        public async Task DeletePurchaseOrderAsync(int purchaseOrderId)
         {
-            var purchaseOrder = _context.PurchaseOrders.Find(purchaseOrderId);
-            if (purchaseOrder != null)
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
             {
-                _context.PurchaseOrders.Remove(purchaseOrder);
-                _context.SaveChangesAsync();
+                var purchaseOrder = await _context.PurchaseOrders.FindAsync(purchaseOrderId);
+
+                if (purchaseOrder != null)
+                {
+                    var purchaseOrderLine = await _context.PurchaseOrderLines.Where(pol => pol.PurchaseOrderId == purchaseOrderId).ToListAsync();
+                    _context.PurchaseOrderLines.RemoveRange(purchaseOrderLine);
+                    
+                    var supplierTransaction = await _context.SupplierTransactions.Where(st => st.PurchaseOrderId == purchaseOrderId).ToListAsync();
+                    _context.SupplierTransactions.RemoveRange(supplierTransaction);
+                    
+
+                    await _context.SaveChangesAsync();
+
+                    _context.PurchaseOrders.Remove(purchaseOrder);
+                    await _context.SaveChangesAsync();
+                    await transaction.CommitAsync();
+                }
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync();
+                throw;
             }
         }
+
     }
 }

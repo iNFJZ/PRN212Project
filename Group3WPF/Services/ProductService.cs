@@ -39,11 +39,13 @@ namespace Group3WPF.Services
             _productRepository.UpdateProductAsync(product);
         }
 
-        public void DeleteProductAsync(int productId)
+        public async Task DeleteProductAsync(int productId)
         {
-            MyContext myContext = new MyContext();
-            ProductRepository _productRepository = new ProductRepository(myContext);
-            _productRepository.DeleteProductAsync(productId);
+            using (var myContext = new MyContext())
+            {
+                ProductRepository _productRepository = new ProductRepository(myContext);
+                await _productRepository.DeleteProductAsync(productId);
+            }
         }
     }
 }

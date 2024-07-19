@@ -40,13 +40,38 @@ namespace Group3WPF.Repository.impl
             _context.SaveChangesAsync();
         }
 
-        public void DeleteSupplierAsync(int supplierId)
+        public async Task DeleteSupplierAsync(int supplierId)
         {
-            var supplier =  _context.Suppliers.Find(supplierId);
-            if (supplier != null)
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
             {
-                _context.Suppliers.Remove(supplier);
-                 _context.SaveChangesAsync();
+                var supplier = await _context.Suppliers.FindAsync(supplierId);
+                if (supplier != null)
+                {
+                    var supplierTransactions = await _context.SupplierTransactions.Where(st => st.SupplierId == supplierId).ToListAsync();
+                    _context.SupplierTransactions.RemoveRange(supplierTransactions);
+
+                    // Cập nhật SupplierId cho tất cả các sản phẩm liên quan đến nhà cung cấp này
+                    var products = await _context.Products.Where(p => p.SupplierId == supplierId).ToListAsync();
+                    products.ForEach(p => p.SupplierId = null);
+
+                    // Cập nhật SupplierId cho tất cả các đơn đặt hàng liên quan đến nhà cung cấp này
+                    var purchaseOrders = await _context.PurchaseOrders.Where(po => po.SupplierId == supplierId).ToListAsync();
+                    purchaseOrders.ForEach(po => po.SupplierId = null);
+
+                    await _context.SaveChangesAsync();
+
+                    // Xóa nhà cung cấp
+                    _context.Suppliers.Remove(supplier);
+
+                    await _context.SaveChangesAsync();
+                    await transaction.CommitAsync();
+                }
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync();
+                throw;
             }
         }
     }
