@@ -45,5 +45,27 @@ namespace Group3WPF.Services
             PurchaseRepository purchaseRepository = new PurchaseRepository(myContext);
             purchaseRepository.DeletePurchaseOrderAsync(purchaseOrderId);
         }
+
+        //Purchase Order Line -- Detail
+        public PurchaseOrderLine GetPurchaseOrderLineByIdAsync(int purchaseOrderLineId)
+        {
+            MyContext myContext = new MyContext();
+            PurchaseLineRepository purchaseLineRepository = new PurchaseLineRepository(myContext);
+            return purchaseLineRepository.GetPurchaseOrderLineByIdAsync(purchaseOrderLineId);
+        }
+
+        public List<PurchaseOrderLine> GetAllPurchaseOrderLinesAsync()
+        {
+            MyContext myContext = new MyContext();
+            PurchaseLineRepository purchaseLineRepository = new PurchaseLineRepository(myContext);
+            return purchaseLineRepository.GetAllPurchaseOrderLinesAsync();
+        }
+
+        public List<PurchaseOrderLine> GetPurchaseOrderLineByPurchaseOrderIdAsync(int purchaseId)
+        {
+            MyContext myContext = new MyContext();
+            PurchaseLineRepository purchaseLineRepository = new PurchaseLineRepository(myContext);
+            return purchaseLineRepository.GetPurchaseOrderLineByPurchaseOrderIdAsync(purchaseId);
+        }
     }
 }

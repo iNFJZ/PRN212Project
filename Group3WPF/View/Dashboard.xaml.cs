@@ -26,12 +26,6 @@ namespace Group3WPF.View
             InitializeComponent();
         }
 
-
-        private void Purchase_Detail_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Purchase_Click(object sender, RoutedEventArgs e)
         {
             PurchaseViewModel viewModel = new PurchaseViewModel(new PurchaseSevice());

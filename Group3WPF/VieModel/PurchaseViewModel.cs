@@ -16,6 +16,8 @@ namespace Group3WPF.VieModel
     {
         private readonly PurchaseSevice _purchaseService;
         private ObservableCollection<PurchaseOrder> _purchaseOrder;
+        private ObservableCollection<PurchaseOrderLine> _purchaseOrderLine;
+        //private PurchaseSevice _purchase;
         public ObservableCollection<PurchaseOrder> PurchaseOrders
         {
             get { return _purchaseOrder; }
@@ -23,6 +25,16 @@ namespace Group3WPF.VieModel
             {
                 _purchaseOrder = value;
                 OnPropertyChanged(nameof(PurchaseOrders));
+            }
+        }
+
+        public ObservableCollection<PurchaseOrderLine> PurchaseOrderLines
+        {
+            get { return _purchaseOrderLine; }
+            set
+            {
+                _purchaseOrderLine = value;
+                OnPropertyChanged(nameof(PurchaseOrderLines));
             }
         }
 
@@ -39,11 +51,25 @@ namespace Group3WPF.VieModel
         {
             return _purchaseService.GetPurchaseOrderByIdAsync(id);
         }
+
         public void LoadPurchaseOrdersAsync()
         {
             var purchaseOrders = _purchaseService.GetAllPurchaseOrdersAsync();
             PurchaseOrders = new ObservableCollection<PurchaseOrder>(purchaseOrders);
         }
+        
+        public void LoadPurchaseLineAsync()
+        {
+            var purchaseLineOrders = _purchaseService.GetAllPurchaseOrderLinesAsync();
+            PurchaseOrderLines = new ObservableCollection<PurchaseOrderLine>(purchaseLineOrders);
+        }
+
+        public void LoadPurchaseLineByOrderIdAsync(int purchaseId)
+        {
+            var purchaseLineOrders = _purchaseService.GetPurchaseOrderLineByPurchaseOrderIdAsync(purchaseId);
+            PurchaseOrderLines = new ObservableCollection<PurchaseOrderLine>(purchaseLineOrders);
+        }
+
 
         public ICommand AddPurchaseOrderCommand => new RelayCommand<PurchaseOrder>(async (purchaseOrder) =>
         {

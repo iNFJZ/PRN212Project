@@ -64,6 +64,19 @@ namespace Group3WPF.View
             }
         }
 
+        private void OrderDetail_Click(object sender, RoutedEventArgs e)
+        {
+            PurchaseOrder selectedOrder = (PurchaseOrder)dataGrid.SelectedItem;
+            if (selectedOrder != null)
+            {
+                int id = selectedOrder.PurchaseOrderId;
+                PurchaseViewModel viewModel = new PurchaseViewModel(new PurchaseSevice());
+                PurchaseOrderDetail viewDetail = new PurchaseOrderDetail(viewModel); // Pass ID as argument
+                viewDetail.PurchaseOrderId = id;
+                viewDetail.Show();
+            }
+        }
+
         private void DeletePurchaseOrder_Click(object sender, RoutedEventArgs e)
         {
             //// Implement logic to delete the selected supplier
