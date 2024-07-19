@@ -46,6 +46,9 @@ namespace Group3WPF.View
             string txt_refernce = this.txt_refernce.Text;
             string txt_phone = this.txt_phone.Text;
             string txt_url = this.txt_url.Text;
+            string txt_addressline1 = this.txt_addressline1.Text;
+            string txt_addressline2 = this.txt_addressline2.Text;
+            string txt_postalcode = this.txt_postalcode.Text;
             Supplier newSupplier = new Supplier
             {
                 SupplierId = _viewModel.getMaxId() + 1,//chỗ này lấy ra id lớn nhất rồi +1 để thêm mới nhé
@@ -63,7 +66,10 @@ namespace Group3WPF.View
                 PhoneNumber = txt_phone,
                 FaxNumber = "(847) 555-0101",
                 WebsiteUrl = txt_url,
-                DeliveryAddressLine1 = "Suite 10"
+                DeliveryAddressLine1 = "Suite 10",
+                DeliveryAddressLine2 = txt_addressline2,
+                DeliveryPostalCode = txt_postalcode,
+                
 
             };
             _viewModel.AddSupplierCommand.Execute(newSupplier);//đây là hàm thêm mới
@@ -75,6 +81,16 @@ namespace Group3WPF.View
         private void Button_Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void NumberOnly_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextNumeric(e.Text);
+        }
+
+        private static bool IsTextNumeric(string text)
+        {
+            return text.All(char.IsDigit);
         }
     }
 }

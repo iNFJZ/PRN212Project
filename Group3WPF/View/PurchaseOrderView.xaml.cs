@@ -67,6 +67,20 @@ namespace Group3WPF.View
         //        _viewModel.DeleteSupplierCommand.Execute(selectedSupplier.SupplierId);
         //    }
         //}
+        private void txtFilterBy_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            var searchText = txtFilterBy.Text.ToLower();
+            var query = _viewModel.PurchaseOrders.Where(p =>
+                (p.Supplier != null && p.Supplier.SupplierName != null && p.Supplier.SupplierName.ToLower().Contains(searchText)) ||
+                (p.DeliveryMethod != null && p.DeliveryMethod.ToLower().Contains(searchText)) ||
+                (p.SupplierReference != null && p.SupplierReference.ToLower().Contains(searchText)) ||
+                (p.OrderDate.ToString().ToLower().Contains(searchText)) ||
+                (p.ExpectedDeliveryDate != null && p.ExpectedDeliveryDate.Value.ToString().ToLower().Contains(searchText)) ||
+                (p.IsOrderFinalized.ToString().ToLower().Contains(searchText))
+            ).ToList();
+
+            grdPurchaseOrder.ItemsSource = query;
+        }
 
     }
 }
