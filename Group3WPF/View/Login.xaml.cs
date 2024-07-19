@@ -33,20 +33,20 @@ namespace Group3WPF.View
         {
             AccountMenberService accountMenberService = new AccountMenberService();
             String account = this.txt_account.Text;
-            string password = this.txt_password.Text;
+            string password = this.txt_password.Password;
             AccountMember accountMember = accountMenberService.LoginAccountAsync(account, password);
            
             if (accountMember != null)
             {
                 Dashboard dashboard = new Dashboard();
                 if (accountMember.Role == "staff") {
-                    //ôỗc nay quy định menu àon ê
+                    
                     dashboard.CategoryButton.Visibility = Visibility.Collapsed;
                     dashboard.ProductButton.Visibility = Visibility.Collapsed;
                     //dashboard.SuppliesButton.Visibility = Visibility.Collapsed;
 
                 }
-                //nếu k là stafff thì là admin
+          
                 dashboard.Show();
                 this.Close();
             }

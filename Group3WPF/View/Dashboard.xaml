@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group3WPF.View"
         mc:Ignorable="d"
-        Title="Dashboard" Height="450" Width="800">
+        Title="Dashboard" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
+        <Image Grid.Row="0" Source="D:\projectprnteam3\PRN212Project\BackGroud\Blue White Modern Ocean Background Instagram Story.png" Stretch="Fill" />
         <Button x:Name="ProductButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Sản phẩm" HorizontalAlignment="Left" Margin="337,269,0,0" VerticalAlignment="Top" Width="145" Click="Product_Click"/>
         <Button x:Name="CategoryButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Danh Mục" HorizontalAlignment="Left" Margin="337,311,0,0" VerticalAlignment="Top" Width="145" Click="Category_Click"/>
         <Button x:Name="PurchaseButton" Background="#007ACC" Foreground="White"  Content="Danh Sách Đơn Hàng" HorizontalAlignment="Left" Margin="337,236,0,0" VerticalAlignment="Top" Width="145" Click="Purchase_Click"/>

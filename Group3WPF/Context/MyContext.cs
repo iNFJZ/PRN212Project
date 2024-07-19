@@ -34,7 +34,7 @@ namespace Group3WPF.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=LAPTOP-JVJASNEJ;Database=SupplierManagementDB;Trusted_Connection=True;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=SupplierManagementDB;Trusted_Connection=True;TrustServerCertificate=True");
             }
         }
 

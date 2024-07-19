@@ -1,4 +1,5 @@
-﻿using Group3WPF.Models;
+﻿using GalaSoft.MvvmLight.Command;
+using Group3WPF.Models;
 using Group3WPF.Services;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Group3WPF.VieModel
 {
@@ -30,11 +32,38 @@ namespace Group3WPF.VieModel
             _productService = productService;
         }
 
+        public int getMaxId()
+        {
+            return _productService.GetAllProductsAsync().Last().ProductId;
+        }
+        public Product FindById(int id)
+        {
+            return _productService.GetProductByIdAsync(id);
+        }
+
         public  void LoadProductsAsync()
         {
             var products =  _productService.GetAllProductsAsync();
             Products = new ObservableCollection<Product>(products);
         }
+
+        public ICommand AddProductCommand => new RelayCommand<Product>(async (product) =>
+        {
+            _productService.CreateProductAsync(product);
+            LoadProductsAsync();
+        });
+
+        public ICommand UpdateProductCommand => new RelayCommand<Product>(async (product) =>
+        {
+            _productService.UpdateProductAsync(product);
+            LoadProductsAsync();
+        });
+
+        public ICommand DeleteProductCommand => new RelayCommand<int>(async (productId) =>
+        {
+            _productService.DeleteProductAsync(productId);
+            LoadProductsAsync();
+        });
 
         // Implement PropertyChanged event for data binding
         public event PropertyChangedEventHandler PropertyChanged;

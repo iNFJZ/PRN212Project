@@ -5,14 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group3WPF.View"
         mc:Ignorable="d"
-        Title="AddSupplier" Height="450" Width="800">
+        Title="AddSupplier" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
+        <!-- Hình ảnh nền -->
+        <Image Source="D:\GITHUB\PRN212Project\BackGroud\Blue Geometric Background Poster.png" Stretch="Fill" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -36,15 +43,25 @@
         <TextBox x:Name="txt_refernce" Grid.Row="3" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.SupplierReference, Mode=TwoWay}"/>
 
         <Label Grid.Row="4" Grid.Column="0" Content="Phone Number:" VerticalAlignment="Center" Margin="5"/>
-        <TextBox x:Name="txt_phone" Grid.Row="4" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.PhoneNumber, Mode=TwoWay}"/>
+            <TextBox x:Name="txt_phone" Grid.Row="4" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.PhoneNumber, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
 
         <Label Grid.Row="5" Grid.Column="0" Content="Website URL:" VerticalAlignment="Center" Margin="5"/>
         <TextBox x:Name="txt_url" Grid.Row="5" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.WebsiteUrl, Mode=TwoWay}"/>
 
-        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+        <Label Grid.Row="6" Grid.Column="0" Content="DeliveryAddressLine1:" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="txt_addressline1" Grid.Row="6" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.Addressline1, Mode=TwoWay}"/>
+
+        <Label Grid.Row="7" Grid.Column="0" Content="DeliveryAddressLine2:" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="txt_addressline2" Grid.Row="7" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.Addressline2, Mode=TwoWay}"/>
+            
+        <Label Grid.Row="8" Grid.Column="0" Content="DeliveryPortalCode:" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="txt_postalcode" Grid.Row="8" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewSupplier.PostalCode, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
+            
+            <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
             <Button x:Name="btn_save_supplier" Width="100" Margin="5" Content="Save" Command="{Binding SaveCommand}" Click="Button_Save" Height="30" VerticalAlignment="Top" Background="#007ACC" Foreground="White" FontSize="16" FontWeight="Bold" BorderThickness="0"/>
             <Button Width="100" Margin="5" Content="Cancel" Command="{Binding CancelCommand}" Click="Button_Cancel" Height="30" VerticalAlignment="Top" Background="#D32F2F" Foreground="White" FontSize="16" FontWeight="Bold" BorderThickness="0"/>
         </StackPanel>
+    </Grid>
     </Grid>
 
 </Window>

@@ -31,7 +31,7 @@ namespace Group3WPF.Repository.impl
         public void CreateSupplierAsync(Supplier supplier)
         {
             _context.Suppliers.Add(supplier);
-             _context.SaveChangesAsync(); //hàm save dữ liệu vào đb 
+             _context.SaveChangesAsync();
         }
 
         public  void UpdateSupplierAsync(Supplier supplier)

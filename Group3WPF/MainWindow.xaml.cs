@@ -20,13 +20,13 @@ namespace Group3WPF
         public MainWindow()
         {
             InitializeComponent();
+            
         }
         private void Btn_login(object sender, RoutedEventArgs e)
         {
-           
             Login login = new Login();
             login.Show();
-
+            this.Close();
         }
     }
 }

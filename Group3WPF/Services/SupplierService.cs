@@ -11,8 +11,6 @@ namespace Group3WPF.Services
 {
     public class SupplierService 
     {
-    
-
         public List<Supplier> GetAllSuppliersAsync()
         {
             MyContext myContext = new MyContext();

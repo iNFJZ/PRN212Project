@@ -5,10 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group3WPF.View"
         mc:Ignorable="d"
-        Title="SupplierView" Height="450" Width="800">
+        Title="SupplierView" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
 
     <Grid>
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Suppliers}" AutoGenerateColumns="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="433*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label_supplier"
+Content="Danh Sách Nhà Cung Cấp"
+Background="#007ACC"
+Foreground="White"
+HorizontalAlignment="Center"
+VerticalAlignment="Top"
+FontSize="18"
+FontFamily="Arial Black"
+Width="800"
+Height="42"
+HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center"/>
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Suppliers}" AutoGenerateColumns="False" Margin="0,41,0,61">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Supplier ID" Binding="{Binding SupplierId}" />
                 <DataGridTextColumn Header="Supplier Name" Binding="{Binding SupplierName}" />
@@ -24,17 +41,26 @@
                 <DataGridTextColumn Header="Fax Number" Binding="{Binding FaxNumber}" />
                 <DataGridTextColumn Header="Website Url" Binding="{Binding WebsiteUrl}" />
                 <DataGridTextColumn Header="DeliveryAddressLine1" Binding="{Binding DeliveryAddressLine1}" />
+                <DataGridTextColumn Header="DeliveryAddressLine2" Binding="{Binding DeliveryAddressLine2}" />
+                <DataGridTextColumn Header="DeliveryPostalCode" Binding="{Binding DeliveryPostalCode}" />
+
 
 
                 <!-- Add more columns as needed for other properties -->
             </DataGrid.Columns>
         </DataGrid>
-
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,372,0,0" Height="52" Width="403">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,372,0,0" Height="52" Width="650">
             <Button Content="Add Supplier" Width="120" Height="32" Margin="5" Click="AddSupplier_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
             <Button Content="Update Supplier" Width="120" Height="32" Margin="5" Click="UpdateSupplier_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
             <Button Content="Delete Supplier" Width="120" Height="32" Margin="5" Click="DeleteSupplier_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="btnSaveFile" Content="Save File" Width="120" Height="32" Margin="5" Click="btnSaveFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button x:Name="btnLoadFile" Content="Load File" Width="120" Height="32" Margin="5" Click="btnLoadFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+
         </StackPanel>
+
+        <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="680,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" SelectionChanged="txtFilterBy_SelectionChanged"/>
+        <Label Content="Search" HorizontalAlignment="Left" Margin="630,4,0,0" VerticalAlignment="Top"/>
+
 
     </Grid>
 </Window>
