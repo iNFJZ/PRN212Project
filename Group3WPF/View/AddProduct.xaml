@@ -34,7 +34,7 @@
             <TextBox x:Name="txt_product_name" Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewProduct.ProductName, Mode=TwoWay}"/>
 
             <Label Grid.Row="1" Grid.Column="0" Content="Supplier ID:" VerticalAlignment="Center" Margin="5"/>
-            <TextBox x:Name="txt_supplier_id" Grid.Row="1" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewProduct.SupplierId, Mode=TwoWay}"/>
+            <TextBox x:Name="txt_supplier_id" Grid.Row="1" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewProduct.SupplierId, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
 
             <Label Grid.Row="2" Grid.Column="0" Content="Color:" VerticalAlignment="Center" Margin="5"/>
             <TextBox x:Name="txt_color" Grid.Row="2" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewProduct.Color, Mode=TwoWay}"/>

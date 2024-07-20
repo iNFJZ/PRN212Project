@@ -95,7 +95,7 @@ namespace Group3WPF.VieModel
 
         public ICommand DeletePurchaseOrderCommand => new RelayCommand<int>(async (purchaseOrderId) =>
         {
-            _purchaseService.DeletePurchaseOrderAsync(purchaseOrderId);
+            await _purchaseService.DeletePurchaseOrderAsync(purchaseOrderId);
             LoadPurchaseOrdersAsync();
         });
 

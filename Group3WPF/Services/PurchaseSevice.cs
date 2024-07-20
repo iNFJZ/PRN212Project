@@ -40,11 +40,13 @@ namespace Group3WPF.Services
             purchaseRepository.UpdatePurchaseOrderAsync(purchaseOrder);
         }
 
-        public void DeletePurchaseOrderAsync(int purchaseOrderId)
+        public async Task DeletePurchaseOrderAsync(int purchaseOrderId)
         {
-            MyContext myContext = new MyContext();
-            PurchaseRepository purchaseRepository = new PurchaseRepository(myContext);
-            purchaseRepository.DeletePurchaseOrderAsync(purchaseOrderId);
+            using (var myContext = new MyContext())
+            {
+                PurchaseRepository _purchaseOrderRepository = new PurchaseRepository(myContext);
+                await _purchaseOrderRepository.DeletePurchaseOrderAsync(purchaseOrderId);
+            }
         }
 
         //Purchase Order Line -- Detail

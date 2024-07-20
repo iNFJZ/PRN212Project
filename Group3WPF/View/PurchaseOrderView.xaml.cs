@@ -37,8 +37,6 @@ namespace Group3WPF.View
             Loaded += PurchaseView_Loaded;
         }
 
-
-
         private void PurchaseView_Loaded(object sender, RoutedEventArgs e)
         {
             _viewModel.LoadPurchaseOrdersAsync();
@@ -79,11 +77,10 @@ namespace Group3WPF.View
 
         private void DeletePurchaseOrder_Click(object sender, RoutedEventArgs e)
         {
-            //// Implement logic to delete the selected supplier
             PurchaseOrder selectedPurchaseOrder = (PurchaseOrder)dataGrid.SelectedItem;
             if (selectedPurchaseOrder != null)
             {
-                _viewModel.DeletePurchaseOrderCommand.Execute(selectedPurchaseOrder.PurchaseOrderId);
+
             }
         }
         private void txtFilterBy_SelectionChanged(object sender, RoutedEventArgs e)

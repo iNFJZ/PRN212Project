@@ -1,0 +1,38 @@
+﻿<Window x:Class="Group3WPF.View.SupplierCategoriesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group3WPF.View"
+        mc:Ignorable="d"
+        Title="SupplierCategoriesView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="433*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label_purchaseOrder"
+        Content="Danh Sách Danh Mục Nhà Cung Cấp"
+        Background="#007ACC"
+        Foreground="White"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        FontSize="18"
+        FontFamily="Arial Black"
+        Width="800"
+        Height="42"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"/>
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding SupplierCategories}" AutoGenerateColumns="False" Margin="10,41,10,10" SelectionChanged="dataGrid_SelectionChanged_1" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" ID" Binding="{Binding SupplierCategoryId}" Width="100" />
+                <DataGridTextColumn Header=" Name " Binding="{Binding SupplierCategoryName}" Width="700" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBox x:Name="txtFilterBy" HorizontalAlignment="Left" Margin="680,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" TextChanged="txtFilterBy_TextChanged"  />
+        <Label Content="Search" HorizontalAlignment="Left" Margin="630,4,0,0" VerticalAlignment="Top"/>
+    </Grid>
+
+</Window>

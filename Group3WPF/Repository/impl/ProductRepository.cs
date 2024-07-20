@@ -41,19 +41,46 @@ namespace Group3WPF.Repository.impl
             _context.SaveChangesAsync();
         }
 
-        public void DeleteProductAsync(int productId)
+        public async Task DeleteProductAsync(int productId)
         {
-            var product = _context.Products.Find(productId);
-            if (product != null)
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
             {
-                _context.Products.Remove(product);
-                _context.SaveChangesAsync();
+                var product = await _context.Products
+                    .Include(p => p.PurchaseOrderLines) // Đảm bảo rằng tất cả các liên kết cần thiết được tải
+                    .FirstOrDefaultAsync(p => p.ProductId == productId);
+
+                if (product != null)
+                {
+                    // Xóa tất cả các dòng đơn đặt hàng liên quan đến sản phẩm
+                    var purchaseOrderLines = await _context.PurchaseOrderLines
+                        .Where(pol => pol.ProductId == productId)
+                        .ToListAsync();
+                    _context.PurchaseOrderLines.RemoveRange(purchaseOrderLines);
+
+                    // Xóa sản phẩm
+                    _context.Products.Remove(product);
+
+                    // Lưu các thay đổi vào cơ sở dữ liệu
+                    await _context.SaveChangesAsync();
+
+                    // Cam kết giao dịch
+                    await transaction.CommitAsync();
+                }
+                else
+                {
+                    throw new Exception("Product not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Rollback giao dịch trong trường hợp có lỗi
+                await transaction.RollbackAsync();
+                // Ghi lại hoặc xử lý lỗi nếu cần
+                throw new Exception("Error occurred while deleting product", ex);
             }
         }
 
-        public List<string> GetAllProductName()
-        {
-            return _context.Products.Select(p => p.ProductName).Distinct().ToList();
-        }
+
     }
 }
