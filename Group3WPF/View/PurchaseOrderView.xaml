@@ -37,9 +37,10 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,372,0,0" Height="52" Width="749">
-            <Button Content="Add Purchase Order" Width="141" Height="32" Margin="5" Click="AddPurchaseOrder_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
-            <Button Content="Update Purchase Order" Width="165" Height="32" Margin="5" Click="UpdatePurchaseOrder_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
-            <Button Content="Delete Purchase Order" Width="161" Height="32" Margin="5" Click="DeletePurchaseOrder_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="Add Order" Width="115" Height="32" Margin="5" Click="AddPurchaseOrder_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="Update Order" Width="110" Height="32" Margin="5" Click="UpdatePurchaseOrder_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="View Detail" Width="107" Height="32" Margin="5" Click="OrderDetail_Click" Background="#007ACC" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="Delete Order" Width="114" Height="32" Margin="5" Click="DeletePurchaseOrder_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
             <Button x:Name="btnLoadFile" Content="Load File" Width="120" Height="32" Margin="5" Click="btnLoadFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
             <Button x:Name="btnSaveFile" Content="Save File" Width="120" Height="32" Click="btnSaveFile_Click" Background="#D32F2F" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="0"/>
         </StackPanel>

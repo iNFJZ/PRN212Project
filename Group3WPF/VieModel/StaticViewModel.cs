@@ -12,7 +12,8 @@ using System.Windows.Input;
 
 namespace Group3WPF.VieModel
 {
-    public class PurchaseViewModel : INotifyPropertyChanged
+
+    public class StaticViewModel : INotifyPropertyChanged
     {
         private readonly PurchaseSevice _purchaseService;
         private ObservableCollection<PurchaseOrder> _purchaseOrder;
@@ -38,11 +39,55 @@ namespace Group3WPF.VieModel
             }
         }
 
-        public PurchaseViewModel(PurchaseSevice purchaseSevice)
+        public StaticViewModel(PurchaseSevice purchaseSevice)
         {
             _purchaseService = purchaseSevice;
         }
 
+        // Static Manament
+            //Product
+        public List<string> GetAllProductName()
+        {
+            return _purchaseService.GetAllProductName();
+        }
+
+        public int GetProductOrderQuantity(string productName)
+        {
+            return _purchaseService.GetProductOrderQuantity(productName);
+        }
+
+        public float GetProductOrderQuantityPercentage(string productName)
+        {
+            return _purchaseService.GetProductOrderQuantityPercentage(productName);
+        }
+        public int GetAllProductOrderQuantity()
+        {
+            return _purchaseService.GetAllProductOrderQuantity();
+        }
+
+            //Delivery Methods
+        public List<string> GetDeliveryMethodLst()
+        {
+            return _purchaseService.GetDeliveryMethodLst();
+        }
+
+        public int CountDelivery(string deliveryMethod)
+        {
+            return (_purchaseService.CountDelivery(deliveryMethod));
+        }
+
+        public float CountDeliveryPercentage(string deliveryMethod)
+        {
+            return _purchaseService.CountDeliveryPercentage(deliveryMethod);
+        }
+        public int CountAllDelivery()
+        {
+            return _purchaseService.CountAllDelivery();
+        }
+
+
+
+        // Purchase Order
         public int getMaxId()
         {
             return _purchaseService.GetAllPurchaseOrdersAsync().Last().PurchaseOrderId;
@@ -57,7 +102,7 @@ namespace Group3WPF.VieModel
             var purchaseOrders = _purchaseService.GetAllPurchaseOrdersAsync();
             PurchaseOrders = new ObservableCollection<PurchaseOrder>(purchaseOrders);
         }
-        // Get OrderLine
+        // Get Purchase OrderLine
         public void LoadPurchaseLineAsync()
         {
             var purchaseLineOrders = _purchaseService.GetAllPurchaseOrderLinesAsync();
@@ -76,10 +121,10 @@ namespace Group3WPF.VieModel
             return _purchaseService.GetProductOrderQuantity(productId);
         }
 
-        public int CountDelivery(string deliveryMethod)
-        {
-            return _purchaseService.CountDelivery(deliveryMethod);
-        }
+
+
+
+
 
         public ICommand AddPurchaseOrderCommand => new RelayCommand<PurchaseOrder>(async (purchaseOrder) =>
         {
@@ -95,7 +140,7 @@ namespace Group3WPF.VieModel
 
         public ICommand DeletePurchaseOrderCommand => new RelayCommand<int>(async (purchaseOrderId) =>
         {
-            await _purchaseService.DeletePurchaseOrderAsync(purchaseOrderId);
+            _purchaseService.DeletePurchaseOrderAsync(purchaseOrderId);
             LoadPurchaseOrdersAsync();
         });
 
@@ -107,4 +152,5 @@ namespace Group3WPF.VieModel
         }
 
     }
+
 }

@@ -34,7 +34,7 @@ namespace Group3WPF.View
             InitializeComponent();
             _viewModel = viewModel;
             DataContext = _viewModel;
-            Loaded += PurchaseView_Loaded; //
+            Loaded += PurchaseView_Loaded;
         }
 
         private void PurchaseView_Loaded(object sender, RoutedEventArgs e)
@@ -62,20 +62,25 @@ namespace Group3WPF.View
             }
         }
 
+        private void OrderDetail_Click(object sender, RoutedEventArgs e)
+        {
+            PurchaseOrder selectedOrder = (PurchaseOrder)dataGrid.SelectedItem;
+            if (selectedOrder != null)
+            {
+                int id = selectedOrder.PurchaseOrderId;
+                PurchaseViewModel viewModel = new PurchaseViewModel(new PurchaseSevice());
+                PurchaseOrderDetail viewDetail = new PurchaseOrderDetail(viewModel); // Pass ID as argument
+                viewDetail.PurchaseOrderId = id;
+                viewDetail.Show();
+            }
+        }
+
         private void DeletePurchaseOrder_Click(object sender, RoutedEventArgs e)
         {
             PurchaseOrder selectedPurchaseOrder = (PurchaseOrder)dataGrid.SelectedItem;
             if (selectedPurchaseOrder != null)
             {
-                var result = MessageBox.Show("Are you sure you want to delete this purchase order?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
-                {
-                    _viewModel.DeletePurchaseOrderCommand.Execute(selectedPurchaseOrder.PurchaseOrderId);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a purchase order to delete.", "No Purchase Order Selected", MessageBoxButton.OK, MessageBoxImage.Warning);
+
             }
         }
         private void txtFilterBy_SelectionChanged(object sender, RoutedEventArgs e)

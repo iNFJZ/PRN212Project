@@ -26,12 +26,6 @@ namespace Group3WPF.View
             InitializeComponent();
         }
 
-
-        private void Purchase_Detail_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Purchase_Click(object sender, RoutedEventArgs e)
         {
             PurchaseViewModel viewModel = new PurchaseViewModel(new PurchaseSevice());
@@ -69,6 +63,13 @@ namespace Group3WPF.View
             SupplierView supplierView  = new SupplierView(supplierViewModel);
             supplierView.Show();
            
+        }
+
+        private void Static_Click(object sender, RoutedEventArgs e)
+        {
+            StaticViewModel staticViewModel = new StaticViewModel(new PurchaseSevice());
+            StaticView view = new StaticView(staticViewModel);
+            view.Show();
         }
     }
 }
