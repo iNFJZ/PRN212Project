@@ -30,7 +30,7 @@ VerticalContentAlignment="Center"/>
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
                 <DataGridTextColumn Header="Received Quantity" Binding="{Binding ReceivedQuantity}"/>
                 <DataGridTextColumn Header="LastReceiptDate" Binding="{Binding LastReceiptDate}"/>
-                <DataGridTextColumn Header="IsOrderFinalized" Binding="{Binding IsOrderFinalized}"/>
+                <DataGridCheckBoxColumn Header="Is Order Finalized" Binding="{Binding IsOrderFinalized}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

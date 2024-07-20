@@ -32,7 +32,7 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Supplier ID:" VerticalAlignment="Center" Margin="5"/>
-            <TextBox x:Name="txt_supplier_id" Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewPurchaseOrder.SupplierId, Mode=TwoWay}" PreviewTextInput="NumberOnly_PreviewTextInput"/>
+            <TextBox x:Name="txt_supplier_id" Grid.Row="0" Grid.Column="1" Width="200" Margin="5" Text="{Binding NewPurchaseOrder.SupplierId, Mode=TwoWay}"/>
 
             <Label Grid.Row="1" Grid.Column="0" Content="Order Date:" VerticalAlignment="Center" Margin="5"/>
             <DatePicker x:Name="dp_order_date" Grid.Row="1" Grid.Column="1" Width="200" Margin="5" SelectedDate="{Binding NewPurchaseOrder.OrderDate, Mode=TwoWay}"/>

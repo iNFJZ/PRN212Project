@@ -83,7 +83,7 @@ namespace Group3WPF.View
             PurchaseOrder selectedPurchaseOrder = (PurchaseOrder)dataGrid.SelectedItem;
             if (selectedPurchaseOrder != null)
             {
-                _viewModel.DeletePurchaseOrderCommand.Execute(selectedPurchaseOrder.SupplierId);
+                _viewModel.DeletePurchaseOrderCommand.Execute(selectedPurchaseOrder.PurchaseOrderId);
             }
         }
         private void txtFilterBy_SelectionChanged(object sender, RoutedEventArgs e)
